@@ -14,6 +14,7 @@ extends CharacterBody2D
 
 @export var move_shader : Array[Node2D]
 @export var dash_particles : GPUParticles2D
+@export var eyes : Array[Sprite2D]
 @export var sprite : Sprite2D
 @export var move_offset : float = 30
 
@@ -33,7 +34,7 @@ func _ready() -> void:
 	#dash_particles.emitting = false
 
 func handle_state() -> void:
-	if dash_duration >0:
+	if dash_duration > 0:
 		state = State.Dash
 	elif is_on_floor() and abs(velocity.x) > 0:
 		state = State.Walk
@@ -47,7 +48,7 @@ func handle_state() -> void:
 		state = State.Air
 
 func dash() -> void:
-	if dash_cooldown > 0:
+	if dash_cooldown > 0 || is_zero_approx(direction):
 		return;
 	dash_cooldown = DASH_COOLDOWN
 	dash_duration = DASH_DURATION
@@ -76,7 +77,7 @@ func handle_durations(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 
 	handle_state()
-	if state == State.Air || State.Jump:
+	if state == State.Air || state == State.Jump:
 		velocity += get_gravity() * delta
 
 	if state != State.Dash:
@@ -86,16 +87,27 @@ func _physics_process(delta: float) -> void:
 	tween = create_tween()
 
 	tween.set_parallel(true)
+
+
 	tween.tween_property(self,"offset",move_offset*direction,0.1)
 
-	var scalex = clampf(1/abs(velocity.y/200),0.1,1)
-	var scaley = clampf(1/abs(velocity.x/200),0.1,1)
+	var scalex = clampf(1/abs(velocity.y/250),0.7,1)
+	var scaley = clampf(1/abs(velocity.x/250),0.7,1)
 
 	tween.tween_property(self,"global_scale:x",scalex,0.1)
 	tween.tween_property(self,"global_scale:y",scaley,0.1)
 
 	for i in move_shader:
 		i.material.set_shader_parameter("offset",offset)
+
+
+	tween.tween_property(eyes[0],"position:x",move_offset*direction-16,0.1)
+	tween.tween_property(eyes[1],"position:x",move_offset*direction+16,0.1)
+
+	var eyemul = (int)(velocity.y > 50)*1+(int)(velocity.y < 0)*-1
+
+	tween.tween_property(eyes[0],"position:y",16*eyemul,0.1)
+	tween.tween_property(eyes[1],"position:y",16*eyemul,0.1)
 
 	dash_particle_material.scale_3d_max = Vector3(global_scale.x,global_scale.y,1)
 	dash_particle_material.scale_3d_min = Vector3(global_scale.x,global_scale.y,1)
