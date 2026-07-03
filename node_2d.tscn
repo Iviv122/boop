@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://d0krgxkcryago" path="res://shaders/2d_moving.gdshader" id="2_0hol4"]
 [ext_resource type="Script" uid="uid://bo0y3mx6bfwqt" path="res://objects/player/character_body_2d.gd" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://cg5u5jyxal3ae" path="res://sprites/square.png" id="3_epypp"]
+[ext_resource type="Script" uid="uid://dutx7sckign18" path="res://objects/ui/debug_label.gd" id="4_0hol4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epypp"]
 shader = ExtResource("2_0hol4")
@@ -121,6 +122,19 @@ tile_set = SubResource("TileSet_g36xy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1600588213]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=437329795]
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=662318268 node_paths=PackedStringArray("gameObject")]
 offset_right = 40.0
 offset_bottom = 23.0
+script = ExtResource("4_0hol4")
+gameObject = NodePath("../../CharacterBody2D")
+valueName = &"coyote_duration"
+metadata/_custom_type_script = "uid://dutx7sckign18"
+
+[node name="DebugLabel" type="Label" parent="CanvasLayer" unique_id=2146678758 node_paths=PackedStringArray("gameObject")]
+offset_top = 43.0
+offset_right = 40.0
+offset_bottom = 66.0
+script = ExtResource("4_0hol4")
+gameObject = NodePath("../../CharacterBody2D")
+valueName = &"dash_cooldown"
+metadata/_custom_type_script = "uid://dutx7sckign18"

@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var SPEED : float = 150.0
 @export var JUMP_VELOCITY : float = -300.0
 @export var FALL_VELOCITY : float = 600
+@export var COYOTE_TIME: float = 0.5
 
 @export var DASH_DURATION : float = 0.4
 @export var DASH_COOLDOWN : float = 2
@@ -28,42 +29,42 @@ var direction : float
 var dash_cooldown : float = 0
 var dash_duration : float = 0
 var dash_particle_material : ParticleProcessMaterial
+var coyote_duration : float = 0
 
 func _ready() -> void:
 	dash_particle_material = dash_particles.process_material as ParticleProcessMaterial
-	#dash_particles.emitting = false
 
 func handle_state() -> void:
 	if dash_duration > 0:
 		state = State.Dash
-	elif is_on_floor() and abs(velocity.x) > 0:
-		state = State.Walk
-		double_jump = true;
-	elif is_on_floor() and abs(velocity.x) <= 0:
+	elif is_on_floor():
 		state = State.Ground
+		coyote_duration = COYOTE_TIME
 		double_jump = true;
-	elif velocity.y < 0:
-		state = State.Jump
 	else:
 		state = State.Air
 
+func can_dash() -> bool:
+	return !(dash_cooldown > 0 || is_zero_approx(direction))
+
 func dash() -> void:
-	if dash_cooldown > 0 || is_zero_approx(direction):
-		return;
 	dash_cooldown = DASH_COOLDOWN
 	dash_duration = DASH_DURATION
 
-func jump() -> void:
-	if state == State.Air:
-		double_jump = false
 
+func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 
 func can_jump() -> bool:
-	if (state == State.Air || state == State.Jump) && !double_jump:
-		return false
-	if (state == State.Air || state == State.Jump) && double_jump:
-		double_jump = false
+	if coyote_duration > 0:
+		coyote_duration = 0
+		return true
+	if state == State.Air:
+		if double_jump:
+			double_jump = false
+			return true
+		else:
+			return false
 
 	return true
 
@@ -74,10 +75,13 @@ func handle_durations(delta: float) -> void:
 	dash_duration -= delta
 	dash_duration = max(0,dash_duration-delta)
 
+	coyote_duration -= delta
+	coyote_duration = max(0,coyote_duration-delta)
+
 func _physics_process(delta: float) -> void:
 
 	handle_state()
-	if state == State.Air || state == State.Jump:
+	if state == State.Air:
 		velocity += get_gravity() * delta
 
 	if state != State.Dash:
@@ -87,7 +91,6 @@ func _physics_process(delta: float) -> void:
 	tween = create_tween()
 
 	tween.set_parallel(true)
-
 
 	tween.tween_property(self,"offset",move_offset*direction,0.1)
 
@@ -121,22 +124,21 @@ func _physics_process(delta: float) -> void:
 		velocity.x += direction * DASH_VELOCITY
 
 	if Input.is_action_pressed("shift"):
-		dash()
+		if can_dash():
+			dash()
 
 	if Input.is_action_pressed("s"):
 		velocity.y += FALL_VELOCITY
 
-	if Input.is_action_just_pressed("jump") and can_jump():
-		jump()
+	if Input.is_action_just_pressed("jump"):
+		if can_jump():
+			jump()
 
 	handle_durations(delta)
-	#dash_particles.emitting = dash_duration > 0
 	move_and_slide()
 
 enum State{
 	Ground,
 	Dash,
-	Walk,
-	Jump,
 	Air,
 }
