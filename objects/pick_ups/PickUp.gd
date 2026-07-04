@@ -15,14 +15,14 @@ func destory_effect() -> void:
 		eff.queue_free()
 	get_tree().create_timer(eff.lifetime).timeout.connect(callback)
 
-func effect() -> void:
+func effect(_player : PlayerBody) -> void:
 	pass
 
 func _ready() -> void:
 	body_entered.connect(pick_up)
 
 func pick_up(node : Node2D) -> void:
-	if node is CharacterBody2D:
-		effect()
+	if node is PlayerBody:
+		effect(node)
 		destory_effect()
 		queue_free()

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c440gcpynebco"]
 
 [ext_resource type="Script" uid="uid://bo0y3mx6bfwqt" path="res://objects/player/character_body_2d.gd" id="1_a4hy7"]
+[ext_resource type="Resource" uid="uid://ca2a51mdfr73h" path="res://game_objects/player_channel.tres" id="2_7o085"]
 [ext_resource type="Shader" uid="uid://d0krgxkcryago" path="res://shaders/2d_moving.gdshader" id="2_hy5qn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epypp"]
@@ -70,10 +71,7 @@ dash_particles = NodePath("AfterImage")
 eyes = [NodePath("eye1"), NodePath("eye2")]
 sprite = NodePath("Sprite2D")
 move_offset = 15.0
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=128025886]
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+death_channel = ExtResource("2_7o085")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1611400383]
 material = SubResource("ShaderMaterial_epypp")

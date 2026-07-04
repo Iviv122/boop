@@ -1,6 +1,5 @@
 extends CharacterBody2D
-
-# TODO: Cayote time
+class_name PlayerBody
 
 @export var SPEED : float = 150.0
 @export var JUMP_VELOCITY : float = -300.0
@@ -19,6 +18,7 @@ extends CharacterBody2D
 @export var sprite : Sprite2D
 @export var move_offset : float = 30
 
+@export var death_channel : PlayerChannel
 
 var double_jump : bool = true
 
@@ -31,8 +31,18 @@ var dash_duration : float = 0
 var dash_particle_material : ParticleProcessMaterial
 var coyote_duration : float = 0
 
+signal died
+signal spawned
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("restart"):
+		die()
+
 func _ready() -> void:
 	dash_particle_material = dash_particles.process_material as ParticleProcessMaterial
+	await get_tree().physics_frame
+	spawned.emit()
+	death_channel.created(self)
 
 func handle_state() -> void:
 	if dash_duration > 0:
@@ -44,12 +54,23 @@ func handle_state() -> void:
 	else:
 		state = State.Air
 
+func die() -> void:
+	death_channel.die(self)
+	died.emit()
+	queue_free()
+
 func can_dash() -> bool:
 	return !(dash_cooldown > 0 || is_zero_approx(direction))
+
+func reset_dash_cooldown() -> void:
+	dash_cooldown = 0
 
 func dash() -> void:
 	dash_cooldown = DASH_COOLDOWN
 	dash_duration = DASH_DURATION
+
+func grant_extra_double_jump() -> void:
+	double_jump = true
 
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY

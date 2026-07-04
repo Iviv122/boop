@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PlayerChannel" format=3 uid="uid://ca2a51mdfr73h"]
+
+[ext_resource type="Script" uid="uid://c5nfde6xv81mw" path="res://objects/player/death_channel.gd" id="1_008kc"]
+
+[resource]
+script = ExtResource("1_008kc")
+metadata/_custom_type_script = "uid://c5nfde6xv81mw"
