@@ -51,7 +51,6 @@ func dash() -> void:
 	dash_cooldown = DASH_COOLDOWN
 	dash_duration = DASH_DURATION
 
-
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 
