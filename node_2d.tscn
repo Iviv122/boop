@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bwnhw38sxbp1e" path="res://objects/pick_ups/ExtraJump.gd" id="4_q6r6c"]
 [ext_resource type="PackedScene" uid="uid://c7t3ro0v4fq44" path="res://game_objects/particles/pick_up_effect.tscn" id="5_q6r6c"]
 [ext_resource type="Script" uid="uid://dugy5dbtawnun" path="res://objects/env/kill_area.gd" id="7_d21ai"]
+[ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="8_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://n0oi5ta6jalg" path="res://game_objects/spawner.tscn" id="8_rj586"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
@@ -33,6 +34,9 @@ size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
 size = Vector2(64, 64)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d21ai"]
+shader = ExtResource("8_4d7sh")
 
 [node name="Node2D" type="Node2D" unique_id=873461563]
 
@@ -75,4 +79,5 @@ metadata/_custom_type_script = "uid://dugy5dbtawnun"
 shape = SubResource("RectangleShape2D_d21ai")
 
 [node name="Spawner" parent="." unique_id=1777203162 instance=ExtResource("8_rj586")]
+material = SubResource("ShaderMaterial_d21ai")
 position = Vector2(310, -222)
