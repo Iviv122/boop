@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name PlayerBody
 
+# TODO: wall jump with shape checker instead of raycast
+
 @export var SPEED : float = 150.0
 @export var JUMP_VELOCITY : float = -300.0
 @export var FALL_VELOCITY : float = 600
@@ -50,7 +52,10 @@ func handle_state() -> void:
 	elif is_on_floor():
 		state = State.Ground
 		coyote_duration = COYOTE_TIME
-		double_jump = true;
+		double_jump = true
+	elif is_on_wall():
+		state = State.Wall
+		double_jump = true
 	else:
 		state = State.Air
 
@@ -159,6 +164,7 @@ func _physics_process(delta: float) -> void:
 
 enum State{
 	Ground,
+	Wall,
 	Dash,
 	Air,
 }
