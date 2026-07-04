@@ -13,7 +13,7 @@ void fragment() {
 	val1 = step(dist+width,UV.y)-step(1.-dist-width,UV.y);
 	a -= val*val1;
 	
-	a = 1.-a*0.7;
+	a = 1.-a*0.8;
 	
 	COLOR = vec4(COLOR.rgb*a,1.); 
 }
