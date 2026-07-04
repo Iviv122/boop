@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://ca2a51mdfr73h" path="res://game_objects/player_channel.tres" id="4_kdubu"]
 [ext_resource type="Script" uid="uid://bwnhw38sxbp1e" path="res://objects/pick_ups/ExtraJump.gd" id="4_q6r6c"]
 [ext_resource type="PackedScene" uid="uid://c7t3ro0v4fq44" path="res://game_objects/particles/pick_up_effect.tscn" id="5_q6r6c"]
+[ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="7_4d7sh"]
 [ext_resource type="Script" uid="uid://dugy5dbtawnun" path="res://objects/env/kill_area.gd" id="7_d21ai"]
 [ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="8_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://n0oi5ta6jalg" path="res://game_objects/spawner.tscn" id="8_rj586"]
@@ -35,6 +36,22 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
 size = Vector2(64, 64)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rj586"]
+shader = ExtResource("7_4d7sh")
+shader_parameter/color_gap = Vector4(0.25, 0.25, 0.25, 0)
+shader_parameter/color_stripe = Vector4(1, 0.085, 0.33, 0.75)
+shader_parameter/divisions = 7.98
+shader_parameter/stripe_bias = 2.5
+shader_parameter/speed = 0.1
+shader_parameter/angle = 0.7854
+
+[sub_resource type="Gradient" id="Gradient_rj586"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.7058824, 0.1254902, 0.16470589, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rj586"]
+gradient = SubResource("Gradient_rj586")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d21ai"]
 shader = ExtResource("8_4d7sh")
 
@@ -45,6 +62,7 @@ tile_map_data = PackedByteArray("AAD3/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD5/wAAAQAAAAA
 tile_set = SubResource("TileSet_g36xy")
 
 [node name="PlayerUI" type="CanvasLayer" parent="." unique_id=921710401]
+visible = false
 
 [node name="FadeEffect" type="ColorRect" parent="PlayerUI" unique_id=1467682044]
 anchors_preset = 15
@@ -71,12 +89,19 @@ texture = SubResource("GradientTexture2D_pkisx")
 shape = SubResource("RectangleShape2D_g36xy")
 
 [node name="KillArea" type="Area2D" parent="." unique_id=1294982426]
-position = Vector2(-116, -52)
+z_index = -1
+position = Vector2(862, 251)
+scale = Vector2(3.8799994, 2.28)
 script = ExtResource("7_d21ai")
 metadata/_custom_type_script = "uid://dugy5dbtawnun"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea" unique_id=1428353705]
 shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="Sprite2D" type="Sprite2D" parent="KillArea" unique_id=226115915]
+modulate = Color(0.8745098, 0.24313726, 0.13725491, 1)
+material = SubResource("ShaderMaterial_rj586")
+texture = SubResource("GradientTexture2D_rj586")
 
 [node name="Spawner" parent="." unique_id=1777203162 instance=ExtResource("8_rj586")]
 material = SubResource("ShaderMaterial_d21ai")
