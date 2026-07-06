@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SpawnPointChannel" format=3 uid="uid://ct6mkhea8qalv"]
+
+[ext_resource type="Script" uid="uid://cpx4yy3xwx17" path="res://objects/env/SpawnPointChannel.gd" id="1_4c2pq"]
+[ext_resource type="Resource" uid="uid://bjqvvqh2nfwl4" path="res://game_objects/player_bus.tres" id="1_xl03u"]
+
+[resource]
+script = ExtResource("1_4c2pq")
+deathChannel = ExtResource("1_xl03u")
+metadata/_custom_type_script = "uid://cpx4yy3xwx17"

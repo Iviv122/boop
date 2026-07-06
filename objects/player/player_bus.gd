@@ -1,5 +1,5 @@
 extends Resource
-class_name PlayerChannel
+class_name PlayerBus
 
 signal spawn(player : PlayerBody)
 signal death(player : PlayerBody)

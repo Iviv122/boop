@@ -1,37 +1,70 @@
-extends Node2D
+extends Area2D
+class_name SpawnPoint
 
 @export var player : PackedScene
 @export var cam_smooth : float = 10
 
-var curr_player : PlayerBody
-var curr_camera : TargetCam
+@export var first : bool = false
+@export var spawnPointChannel : SpawnPointChannel
+@export var toRemove : Array[Node2D]
+
+var id : int
+
+func getPlayer() -> PlayerBody:
+	return spawnPointChannel.curr_player
+
+func getCamera() -> TargetCam:
+		return spawnPointChannel.curr_camera
+
+func setCamera(cam : TargetCam):
+	spawnPointChannel.curr_camera = cam
+func setPlayer(_player : PlayerBody):
+	spawnPointChannel.curr_player =_player
+
 
 func _ready() -> void:
-	spawn()
-	create_cam()
+	spawnPointChannel.subscribe()
+	id = spawnPointChannel.get_id()
+	spawnPointChannel.respawn.connect(try_spawn)
+	body_entered.connect(try_activate)
+	if first:
+		activate()
+		spawn()
+		create_cam()
 
+
+func activate():
+	spawnPointChannel.activated(id)
+	for i in toRemove:
+		i.queue_free()
+
+func try_activate(node : Node2D) -> void:
+	if node is PlayerBody:
+		activate()
+
+func try_spawn(other_id: int) -> void:
+	if other_id == id:
+		spawn()
 
 func create_cam() -> void:
-	if curr_camera:
+	if getCamera():
 		return;
-	curr_camera = TargetCam.new()
-	curr_camera.position_smoothing_enabled = true
-	curr_camera.position_smoothing_speed = 10
+	setCamera(TargetCam.new())
+	getCamera().position_smoothing_enabled = true
+	getCamera().position_smoothing_speed = 10
 
 	if !player:
 		spawn()
-	curr_camera.target = curr_player
+	getCamera().target = getPlayer()
 
-	get_tree().root.add_child.call_deferred(curr_camera)
+	get_tree().current_scene.add_child.call_deferred(getCamera())
 
 # argument becaise deathchannel argument
 func spawn() -> void:
 
-	curr_player = player.instantiate()
-	curr_player.global_position = global_position
-	get_tree().root.add_child.call_deferred(curr_player)
+	setPlayer(player.instantiate())
+	getPlayer().global_position = global_position
+	get_tree().current_scene.add_child.call_deferred(getPlayer())
 
-	if curr_camera:
-		curr_camera.target = curr_player
-
-	curr_player.died.connect(spawn)
+	if getCamera():
+		getCamera().target = getPlayer()

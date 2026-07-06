@@ -3,9 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cg5u5jyxal3ae" path="res://sprites/square.png" id="1_2aftt"]
 [ext_resource type="PackedScene" uid="uid://c3gs04wwu0oaq" path="res://game_objects/extra_jump.tscn" id="1_725xe"]
 [ext_resource type="Texture2D" uid="uid://gp4kgvemewgb" path="res://sprites/Sprite-0003.png" id="1_a1scl"]
-[ext_resource type="Script" uid="uid://b3umghhj3ulcs" path="res://objects/ui/fade_screen.gd" id="2_725xe"]
 [ext_resource type="Shader" uid="uid://c7jpf3epy1i0x" path="res://shaders/background1.gdshader" id="3_2aftt"]
-[ext_resource type="Resource" uid="uid://ca2a51mdfr73h" path="res://game_objects/player_channel.tres" id="3_344tg"]
 [ext_resource type="PackedScene" uid="uid://n0oi5ta6jalg" path="res://game_objects/spawner.tscn" id="6_gprjd"]
 [ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="7_6j3rm"]
 [ext_resource type="Script" uid="uid://dugy5dbtawnun" path="res://objects/env/kill_area.gd" id="9_1diu1"]
@@ -120,28 +118,19 @@ position = Vector2(1392.0002, 397.0001)
 scale = Vector2(62.8125, 31.281252)
 texture = SubResource("GradientTexture2D_a1scl")
 
-[node name="PlayerUI" type="CanvasLayer" parent="." unique_id=895285309]
-visible = false
-
-[node name="FadeEffect" type="ColorRect" parent="PlayerUI" unique_id=506925604]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("2_725xe")
-player_channel = ExtResource("3_344tg")
-metadata/_custom_type_script = "uid://b3umghhj3ulcs"
-
 [node name="Spawner" parent="." unique_id=1777203162 instance=ExtResource("6_gprjd")]
 material = SubResource("ShaderMaterial_nijki")
 position = Vector2(445, 781)
+first = true
+
+[node name="Spawner2" parent="." unique_id=293057791 instance=ExtResource("6_gprjd")]
+material = SubResource("ShaderMaterial_nijki")
+position = Vector2(1798, 953)
 
 [node name="KillArea" type="Area2D" parent="." unique_id=1634957052]
 z_index = -1
 position = Vector2(2177, 1202)
-scale = Vector2(8.0687475, 4.9098353)
+scale = Vector2(7.9, 4.9)
 script = ExtResource("9_1diu1")
 metadata/_custom_type_script = "uid://dugy5dbtawnun"
 

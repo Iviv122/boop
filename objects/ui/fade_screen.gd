@@ -1,7 +1,7 @@
 extends ColorRect
 class_name FadeScreen
 
-@export var player_channel : PlayerChannel
+@export var player_channel : PlayerBus
 
 var tween : Tween
 

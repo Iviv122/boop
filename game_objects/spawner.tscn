@@ -2,15 +2,56 @@
 
 [ext_resource type="Script" uid="uid://cvsjc2og14f82" path="res://objects/env/spawn_point.gd" id="1_sogkx"]
 [ext_resource type="PackedScene" uid="uid://c440gcpynebco" path="res://game_objects/player.tscn" id="2_pqort"]
+[ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="3_4e137"]
+[ext_resource type="Resource" uid="uid://ct6mkhea8qalv" path="res://game_objects/spawnpoint_bus.tres" id="3_brwn1"]
+[ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="4_esckn"]
 
-[sub_resource type="Gradient" id="Gradient_84wu7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pkisx"]
+shader = ExtResource("3_4e137")
+shader_parameter/color_gap = Vector4(0.25, 0.25, 0.25, 0.25)
+shader_parameter/color_stripe = Vector4(1, 0.75, 0, 1)
+shader_parameter/divisions = 8.0
+shader_parameter/stripe_bias = 2.5
+shader_parameter/speed = 0.1
+shader_parameter/angle = 0.7854
+
+[sub_resource type="Gradient" id="Gradient_esckn"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g36xy"]
+gradient = SubResource("Gradient_esckn")
+width = 128
+height = 128
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gxdlg"]
+shader = ExtResource("4_esckn")
+
+[sub_resource type="Gradient" id="Gradient_brwn1"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(0.19607843, 0.5176471, 0.39215687, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_84wu7"]
-gradient = SubResource("Gradient_84wu7")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pkisx"]
+gradient = SubResource("Gradient_brwn1")
 
-[node name="Spawner" type="Sprite2D" unique_id=1777203162]
-texture = SubResource("GradientTexture2D_84wu7")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esckn"]
+size = Vector2(128, 128)
+
+[node name="Spawner" type="Area2D" unique_id=293057791 node_paths=PackedStringArray("toRemove")]
 script = ExtResource("1_sogkx")
 player = ExtResource("2_pqort")
+spawnPointChannel = ExtResource("3_brwn1")
+toRemove = [NodePath("Activate_area"), NodePath("CollisionShape2D")]
+metadata/_custom_type_script = "uid://cvsjc2og14f82"
+
+[node name="Activate_area" type="Sprite2D" parent="." unique_id=1411134000]
+z_index = -1
+material = SubResource("ShaderMaterial_pkisx")
+texture = SubResource("GradientTexture2D_g36xy")
+
+[node name="Spawner" type="Sprite2D" parent="." unique_id=167844985]
+material = SubResource("ShaderMaterial_gxdlg")
+texture = SubResource("GradientTexture2D_pkisx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=95094546]
+shape = SubResource("RectangleShape2D_esckn")

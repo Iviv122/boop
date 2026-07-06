@@ -20,7 +20,7 @@ class_name PlayerBody
 @export var sprite : Sprite2D
 @export var move_offset : float = 30
 
-@export var death_channel : PlayerChannel
+@export var death_channel : PlayerBus
 
 var double_jump : bool = true
 
