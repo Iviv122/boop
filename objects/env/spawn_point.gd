@@ -23,17 +23,20 @@ func setPlayer(_player : PlayerBody):
 
 
 func _ready() -> void:
-	spawnPointChannel.subscribe()
-	id = spawnPointChannel.get_id()
 	spawnPointChannel.respawn.connect(try_spawn)
-	body_entered.connect(try_activate)
 	if first:
 		activate()
 		spawn()
 		create_cam()
+	else:
+		body_entered.connect(try_activate)
+
 
 
 func activate():
+
+	spawnPointChannel.subscribe()
+	id = spawnPointChannel.get_id()
 	spawnPointChannel.activated(id)
 	for i in toRemove:
 		i.queue_free()

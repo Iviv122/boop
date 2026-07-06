@@ -127,6 +127,10 @@ first = true
 material = SubResource("ShaderMaterial_nijki")
 position = Vector2(1798, 953)
 
+[node name="Spawner3" parent="." unique_id=800406151 instance=ExtResource("6_gprjd")]
+material = SubResource("ShaderMaterial_nijki")
+position = Vector2(2692, 297)
+
 [node name="KillArea" type="Area2D" parent="." unique_id=1634957052]
 z_index = -1
 position = Vector2(2177, 1202)
