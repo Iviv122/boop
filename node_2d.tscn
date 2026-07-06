@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cg5u5jyxal3ae" path="res://sprites/square.png" id="3_epypp"]
 [ext_resource type="Script" uid="uid://b3umghhj3ulcs" path="res://objects/ui/fade_screen.gd" id="3_q6r6c"]
 [ext_resource type="Resource" uid="uid://ca2a51mdfr73h" path="res://game_objects/player_channel.tres" id="4_kdubu"]
-[ext_resource type="Script" uid="uid://bwnhw38sxbp1e" path="res://objects/pick_ups/ExtraJump.gd" id="4_q6r6c"]
-[ext_resource type="PackedScene" uid="uid://c7t3ro0v4fq44" path="res://game_objects/particles/pick_up_effect.tscn" id="5_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://c3gs04wwu0oaq" path="res://game_objects/extra_jump.tscn" id="4_rj586"]
 [ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="7_4d7sh"]
 [ext_resource type="Script" uid="uid://dugy5dbtawnun" path="res://objects/env/kill_area.gd" id="7_d21ai"]
 [ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="8_4d7sh"]
@@ -20,18 +19,6 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_0hol4")
-
-[sub_resource type="Gradient" id="Gradient_0hol4"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pkisx"]
-gradient = SubResource("Gradient_0hol4")
-width = 32
-height = 32
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g36xy"]
-size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
 size = Vector2(64, 64)
@@ -76,18 +63,8 @@ script = ExtResource("3_q6r6c")
 player_channel = ExtResource("4_kdubu")
 metadata/_custom_type_script = "uid://b3umghhj3ulcs"
 
-[node name="PickUp" type="Area2D" parent="." unique_id=405313132]
-modulate = Color(0.1254902, 0.8392157, 0.78039217, 1)
+[node name="PickUp" parent="." unique_id=2082925212 instance=ExtResource("4_rj586")]
 position = Vector2(-602, -260)
-script = ExtResource("4_q6r6c")
-pick_up_effect = ExtResource("5_q6r6c")
-metadata/_custom_type_script = "uid://bwnhw38sxbp1e"
-
-[node name="Sprite2D" type="Sprite2D" parent="PickUp" unique_id=1698845226]
-texture = SubResource("GradientTexture2D_pkisx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUp" unique_id=952283496]
-shape = SubResource("RectangleShape2D_g36xy")
 
 [node name="KillArea" type="Area2D" parent="." unique_id=1294982426]
 z_index = -1

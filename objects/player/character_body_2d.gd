@@ -53,9 +53,6 @@ func handle_state() -> void:
 		state = State.Ground
 		coyote_duration = COYOTE_TIME
 		double_jump = true
-	elif is_on_wall():
-		state = State.Wall
-		double_jump = true
 	else:
 		state = State.Air
 
@@ -164,7 +161,6 @@ func _physics_process(delta: float) -> void:
 
 enum State{
 	Ground,
-	Wall,
 	Dash,
 	Air,
 }

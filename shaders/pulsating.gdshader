@@ -1,5 +1,4 @@
 shader_type canvas_item;
-
 const float width = 0.1;
 
 void fragment() {
@@ -17,8 +16,3 @@ void fragment() {
 	
 	COLOR = vec4(COLOR.rgb*a,1.); 
 }
-
-//void light() {
-//	// Called for every pixel for every light affecting the material.
-//	// Uncomment to replace the default light processing function with this one.
-//}
