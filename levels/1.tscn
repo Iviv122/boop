@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cg5u5jyxal3ae" path="res://sprites/square.png" id="1_2aftt"]
 [ext_resource type="PackedScene" uid="uid://c3gs04wwu0oaq" path="res://game_objects/extra_jump.tscn" id="1_725xe"]
 [ext_resource type="Texture2D" uid="uid://gp4kgvemewgb" path="res://sprites/Sprite-0003.png" id="1_a1scl"]
-[ext_resource type="Shader" uid="uid://c7jpf3epy1i0x" path="res://shaders/background1.gdshader" id="3_2aftt"]
 [ext_resource type="PackedScene" uid="uid://n0oi5ta6jalg" path="res://game_objects/spawner.tscn" id="6_gprjd"]
 [ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="7_6j3rm"]
 [ext_resource type="Script" uid="uid://dugy5dbtawnun" path="res://objects/env/kill_area.gd" id="9_1diu1"]
@@ -62,9 +61,24 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_sjybn")
 sources/0 = SubResource("TileSetAtlasSource_2aftt")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2aftt"]
-shader = ExtResource("3_2aftt")
-shader_parameter/size = 25.0
+[sub_resource type="Shader" id="Shader_2aftt"]
+code = "shader_type canvas_item;
+
+
+uniform float size : hint_range(1.0, 100.0) = 25.0;
+uniform vec4 color1 : source_color = vec4(1.0, 1.0, 1.0, 1.0); 
+uniform vec4 color2 : source_color = vec4(0.7, 0.7, 0.7, 1.0);
+
+void fragment() {
+	vec2 pos = floor(FRAGCOORD.xy / size);
+    float pattern_mask = mod(pos.x + mod(pos.y, 2.0), 2.0);
+    COLOR *= mix(color1, color2, pattern_mask);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_344tg"]
+shader = SubResource("Shader_2aftt")
+shader_parameter/size = 100.0
 shader_parameter/color1 = Color(1, 1, 1, 1)
 shader_parameter/color2 = Color(0.7, 0.7, 0.7, 1)
 
@@ -74,6 +88,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_a1scl"]
 gradient = SubResource("Gradient_a1scl")
+fill_to = Vector2(0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nijki"]
 shader = ExtResource("7_6j3rm")
@@ -113,7 +128,7 @@ tile_set = SubResource("TileSet_s0nv6")
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayer" unique_id=1630909114]
 modulate = Color(0.65012825, 0.6501283, 0.65012825, 1)
 z_index = -1
-material = SubResource("ShaderMaterial_2aftt")
+material = SubResource("ShaderMaterial_344tg")
 position = Vector2(1392.0002, 397.0001)
 scale = Vector2(62.8125, 31.281252)
 texture = SubResource("GradientTexture2D_a1scl")
