@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://gp4kgvemewgb" path="res://sprites/Sprite-0003.png" id="1_a1scl"]
 [ext_resource type="PackedScene" uid="uid://n0oi5ta6jalg" path="res://game_objects/spawner.tscn" id="6_gprjd"]
 [ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="7_6j3rm"]
+[ext_resource type="Script" uid="uid://clo6fqrgi3kq3" path="res://objects/env/item_spawner.gd" id="8_725xe"]
 [ext_resource type="Script" uid="uid://dugy5dbtawnun" path="res://objects/env/kill_area.gd" id="9_1diu1"]
+[ext_resource type="Resource" uid="uid://k1qefq5rkwsh" path="res://game_objects/item_bus.tres" id="9_j0jco"]
+[ext_resource type="Resource" uid="uid://bjqvvqh2nfwl4" path="res://game_objects/player_bus.tres" id="10_gprjd"]
 [ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="10_j0jco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aftt"]
@@ -160,3 +163,9 @@ shape = SubResource("RectangleShape2D_gprjd")
 modulate = Color(0.8745098, 0.24313726, 0.13725491, 1)
 material = SubResource("ShaderMaterial_6j3rm")
 texture = SubResource("GradientTexture2D_sjybn")
+
+[node name="ItemSpawner" type="Node" parent="." unique_id=1159017645]
+script = ExtResource("8_725xe")
+itemBus = ExtResource("9_j0jco")
+playerBus = ExtResource("10_gprjd")
+metadata/_custom_type_script = "uid://clo6fqrgi3kq3"

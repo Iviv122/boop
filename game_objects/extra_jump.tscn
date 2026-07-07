@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bwnhw38sxbp1e" path="res://objects/pick_ups/ExtraJump.gd" id="1_82mth"]
 [ext_resource type="PackedScene" uid="uid://c7t3ro0v4fq44" path="res://game_objects/particles/pick_up_effect.tscn" id="2_lr4re"]
+[ext_resource type="Resource" uid="uid://k1qefq5rkwsh" path="res://game_objects/item_bus.tres" id="3_lr4re"]
 
 [sub_resource type="Gradient" id="Gradient_0hol4"]
 offsets = PackedFloat32Array(1)
@@ -19,6 +20,7 @@ size = Vector2(32, 32)
 modulate = Color(0.1254902, 0.8392157, 0.78039217, 1)
 script = ExtResource("1_82mth")
 pick_up_effect = ExtResource("2_lr4re")
+itemBus = ExtResource("3_lr4re")
 metadata/_custom_type_script = "uid://bwnhw38sxbp1e"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1961704019]

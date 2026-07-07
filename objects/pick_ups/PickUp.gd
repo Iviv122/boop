@@ -3,6 +3,7 @@ class_name PickUp
 
 @export var pick_up_effect : PackedScene
 @export var modulate_effect_self : bool = true
+@export var itemBus : ItemBus
 
 func destory_effect() -> void:
 	var eff : GPUParticles2D = pick_up_effect.instantiate()
@@ -23,6 +24,11 @@ func _ready() -> void:
 
 func pick_up(node : Node2D) -> void:
 	if node is PlayerBody:
+
+		register()
 		effect(node)
 		destory_effect()
 		queue_free()
+
+func register() -> void:
+	itemBus.register(self)
