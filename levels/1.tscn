@@ -141,6 +141,14 @@ region = Rect2(128, 0, 16, 16)
 atlas = ExtResource("11_j0jco")
 region = Rect2(160, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_smcqo"]
+atlas = ExtResource("11_j0jco")
+region = Rect2(0, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8lhh"]
+atlas = ExtResource("11_j0jco")
+region = Rect2(32, 272, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ub3y0"]
 atlas = ExtResource("11_j0jco")
 region = Rect2(0, 288, 16, 16)
@@ -206,6 +214,17 @@ animations = [{
 }],
 "loop": 1,
 "name": &"esc",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smcqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8lhh")
+}],
+"loop": 1,
+"name": &"r",
 "speed": 5.0
 }, {
 "frames": [{
@@ -309,94 +328,89 @@ itemBus = ExtResource("9_j0jco")
 playerBus = ExtResource("10_gprjd")
 metadata/_custom_type_script = "uid://clo6fqrgi3kq3"
 
-[node name="Node2D" type="Node2D" parent="." unique_id=719298471]
-position = Vector2(446, 635)
-
-[node name="d" type="AnimatedSprite2D" parent="Node2D" unique_id=2002132273]
+[node name="d" type="AnimatedSprite2D" parent="." unique_id=2002132273]
 texture_filter = 1
-position = Vector2(60, 0)
+position = Vector2(506, 635)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
 animation = &"d"
 script = ExtResource("12_gprjd")
 
-[node name="a" type="AnimatedSprite2D" parent="Node2D" unique_id=1944826489]
+[node name="a" type="AnimatedSprite2D" parent="." unique_id=1944826489]
 texture_filter = 1
-position = Vector2(-60, 0)
+position = Vector2(386, 635)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
 animation = &"a"
 script = ExtResource("12_gprjd")
 
-[node name="Node2D2" type="Node2D" parent="." unique_id=240504799]
+[node name="space7" type="AnimatedSprite2D" parent="." unique_id=879749981]
+texture_filter = 1
 position = Vector2(1136, 1043)
-
-[node name="space" type="AnimatedSprite2D" parent="Node2D2" unique_id=879749981]
-texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
 animation = &"a"
 script = ExtResource("12_gprjd")
 
-[node name="Node2D3" type="Node2D" parent="." unique_id=37121577]
-position = Vector2(1925, 828)
-
-[node name="shift" type="AnimatedSprite2D" parent="Node2D3" unique_id=1222247790]
+[node name="space6" type="AnimatedSprite2D" parent="." unique_id=1844828279]
 texture_filter = 1
+position = Vector2(1136, 1043)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_1diu1")
+animation = &"space"
+script = ExtResource("12_gprjd")
+
+[node name="shift" type="AnimatedSprite2D" parent="." unique_id=1222247790]
+texture_filter = 1
+position = Vector2(1925, 828)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
 animation = &"shift"
 script = ExtResource("12_gprjd")
 
-[node name="Node2D4" type="Node2D" parent="." unique_id=1360985894]
-position = Vector2(1136, 1043)
-
-[node name="space" type="AnimatedSprite2D" parent="Node2D4" unique_id=1844828279]
+[node name="space8" type="AnimatedSprite2D" parent="." unique_id=44196784]
 texture_filter = 1
+position = Vector2(2548, 1073)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
-animation = &"space"
+animation = &"r"
 script = ExtResource("12_gprjd")
 
-[node name="Node2D5" type="Node2D" parent="." unique_id=512451785]
+[node name="space2" type="AnimatedSprite2D" parent="." unique_id=736175732]
+texture_filter = 1
 position = Vector2(2686, 1015)
-
-[node name="space" type="AnimatedSprite2D" parent="Node2D5" unique_id=736175732]
-texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
 animation = &"space"
 script = ExtResource("12_gprjd")
 
-[node name="space2" type="AnimatedSprite2D" parent="Node2D5" unique_id=1860123310]
+[node name="space3" type="AnimatedSprite2D" parent="." unique_id=1860123310]
 texture_filter = 1
-position = Vector2(0, -155.99998)
+position = Vector2(2686, 859)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
 animation = &"space"
 script = ExtResource("12_gprjd")
 
-[node name="space3" type="AnimatedSprite2D" parent="Node2D5" unique_id=793621263]
+[node name="space4" type="AnimatedSprite2D" parent="." unique_id=793621263]
 texture_filter = 1
-position = Vector2(0, -363.99997)
+position = Vector2(2686, 651)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
 animation = &"space"
 script = ExtResource("12_gprjd")
 
-[node name="space4" type="AnimatedSprite2D" parent="Node2D5" unique_id=1688511986]
+[node name="space5" type="AnimatedSprite2D" parent="." unique_id=1688511986]
 texture_filter = 1
-position = Vector2(0, -545.99994)
+position = Vector2(2686, 469.00006)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
 animation = &"space"
 script = ExtResource("12_gprjd")
 
-[node name="Node2D6" type="Node2D" parent="." unique_id=1025425476]
-position = Vector2(3146, 257)
-
-[node name="space" type="AnimatedSprite2D" parent="Node2D6" unique_id=1193756068]
+[node name="space" type="AnimatedSprite2D" parent="." unique_id=1193756068]
 texture_filter = 1
+position = Vector2(3147, 257)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
 animation = &"esc"
