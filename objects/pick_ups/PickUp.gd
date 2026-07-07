@@ -31,4 +31,4 @@ func pick_up(node : Node2D) -> void:
 		queue_free()
 
 func register() -> void:
-	itemBus.register(self)
+	itemBus.register_duplicate(self)

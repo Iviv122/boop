@@ -7,8 +7,10 @@ class_name ItemSpawner
 var items : Dictionary
 
 func respawn(_player: PlayerBody) -> void:
+	itemBus.reset()
 	for i in items:
-		get_tree().current_scene.add_child(i.duplicate())
+		if i:
+			get_tree().current_scene.add_child.call_deferred(i)
 	for i in items:
 		items.erase(i)
 
@@ -22,5 +24,5 @@ func register(node : Node2D) -> void:
 	)
 
 func _ready() -> void:
-	itemBus.registred.connect(register)
+	itemBus.registred_duplicate.connect(register)
 	playerBus.death.connect(respawn)

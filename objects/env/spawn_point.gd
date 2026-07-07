@@ -64,7 +64,8 @@ func create_cam() -> void:
 
 # argument becaise deathchannel argument
 func spawn() -> void:
-
+	if getPlayer():
+		getPlayer().queue_free()
 	setPlayer(player.instantiate())
 	getPlayer().global_position = global_position
 	get_tree().current_scene.add_child.call_deferred(getPlayer())
