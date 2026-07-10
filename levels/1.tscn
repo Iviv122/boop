@@ -12,6 +12,8 @@
 [ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="10_j0jco"]
 [ext_resource type="Texture2D" uid="uid://eefvs3uafu2b" path="res://sprites/kb_light_all.png" id="11_j0jco"]
 [ext_resource type="Script" uid="uid://bucma1p1f6drk" path="res://objects/util/run_animationSprite.gd" id="12_gprjd"]
+[ext_resource type="Script" uid="uid://djq6frtbmlqxp" path="res://objects/ui/pause_menu.gd" id="13_6j3rm"]
+[ext_resource type="Resource" uid="uid://cibqool5tvujm" path="res://game_objects/game_state.tres" id="14_sjybn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aftt"]
 texture = ExtResource("1_a1scl")
@@ -415,3 +417,20 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1diu1")
 animation = &"esc"
 script = ExtResource("12_gprjd")
+
+[node name="Control" type="CanvasLayer" parent="." unique_id=1303495422]
+script = ExtResource("13_6j3rm")
+gameState = ExtResource("14_sjybn")
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1849037747]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2

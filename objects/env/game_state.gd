@@ -12,6 +12,8 @@ func pause() -> void:
 	state = State.Pause
 	changed_state.emit()
 
+func isPaused() -> bool:
+	return state == State.Pause
 
 
 enum State{

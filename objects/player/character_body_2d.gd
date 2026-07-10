@@ -21,6 +21,7 @@ class_name PlayerBody
 @export var move_offset : float = 30
 
 @export var death_channel : PlayerBus
+@export var game_state : GameState
 
 var double_jump : bool = true
 
@@ -37,6 +38,9 @@ signal died
 signal spawned
 
 func _input(event: InputEvent) -> void:
+	if game_state.isPaused():
+		return
+
 	if event.is_action_pressed("restart"):
 		die()
 
@@ -45,6 +49,7 @@ func _ready() -> void:
 	await get_tree().physics_frame
 	spawned.emit()
 	death_channel.created(self)
+	game_state.play_continue()
 
 func handle_state() -> void:
 	if dash_duration > 0:
@@ -101,6 +106,10 @@ func handle_durations(delta: float) -> void:
 	coyote_duration = max(0,coyote_duration-delta)
 
 func _physics_process(delta: float) -> void:
+
+	if game_state.isPaused():
+		return;
+
 
 	handle_state()
 	if state == State.Air:

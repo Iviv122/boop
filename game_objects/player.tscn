@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bo0y3mx6bfwqt" path="res://objects/player/character_body_2d.gd" id="1_a4hy7"]
 [ext_resource type="Resource" uid="uid://bjqvvqh2nfwl4" path="res://game_objects/player_bus.tres" id="2_7o085"]
 [ext_resource type="Shader" uid="uid://d0krgxkcryago" path="res://shaders/2d_moving.gdshader" id="2_hy5qn"]
+[ext_resource type="Resource" uid="uid://cibqool5tvujm" path="res://game_objects/game_state.tres" id="3_7o085"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epypp"]
 shader = ExtResource("2_hy5qn")
@@ -72,6 +73,7 @@ eyes = [NodePath("eye1"), NodePath("eye2")]
 sprite = NodePath("Sprite2D")
 move_offset = 15.0
 death_channel = ExtResource("2_7o085")
+game_state = ExtResource("3_7o085")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1611400383]
 material = SubResource("ShaderMaterial_epypp")
