@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://btufq8xxxwk44"]
+
+[ext_resource type="Script" uid="uid://djq6frtbmlqxp" path="res://objects/ui/pause_menu.gd" id="1_3ynnj"]
+[ext_resource type="Resource" uid="uid://cibqool5tvujm" path="res://game_objects/game_state.tres" id="2_phdi0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ynnj"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.641934, 0.641934, 0.641934, 0.6039216)
+corner_radius_top_left = 5
+corner_radius_bottom_right = 5
+
+[node name="Control" type="CanvasLayer" unique_id=1172468639]
+script = ExtResource("1_3ynnj")
+gameState = ExtResource("2_phdi0")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=226114088]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1138124845]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ynnj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer" unique_id=1549791824]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1480620764]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=209075818]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1273466689]
+layout_mode = 2
+text = "Continue"
+
+[node name="Button2" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=904814320]
+layout_mode = 2
+text = "Restart"
+
+[node name="Button3" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1565672763]
+layout_mode = 2
+text = "Exit"

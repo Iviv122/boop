@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name PlayerBody
 
-# TODO: wall jump with shape checker instead of raycast
-
 @export var SPEED : float = 150.0
 @export var JUMP_VELOCITY : float = -300.0
 @export var FALL_VELOCITY : float = 600
@@ -109,7 +107,6 @@ func _physics_process(delta: float) -> void:
 
 	if game_state.isPaused():
 		return;
-
 
 	handle_state()
 	if state == State.Air:
