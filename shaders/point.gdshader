@@ -1,17 +1,11 @@
 shader_type canvas_item;
 
-const float off = .01;
-const float speed = 5.;
 uniform vec4 color;
+const float OFF=.01,SPEED=5.;
 
-void fragment() {
-	
-    float y = UV.y - 0.5;
-    float x = UV.x - 0.5;
-	float dist = 1.-sqrt(y*y+x*x)*2.;
-    
-	float diff = off*sin(TIME*speed);
-	float a = step(0.4+diff,dist/2.);
-
-    COLOR = vec4(color.rgb,a*color.a);
+void fragment(){
+	vec2 p=UV-.5;
+	float d=1.-length(p)*2.;
+	float a=step(.4+OFF*sin(TIME*SPEED),d*.5);
+	COLOR=vec4(color.rgb,a*color.a);
 }
