@@ -91,6 +91,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 script = ExtResource("3_rtw2f")
+LoadLevelScript = ExtResource("3_8ln24")
 
 [node name="Button" type="Button" parent="Node2D/LevelSelect" unique_id=1788367541 node_paths=PackedStringArray("manager")]
 anchors_preset = 7
