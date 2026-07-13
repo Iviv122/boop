@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://y6blvklqqimy" path="res://objects/ui/exit_button.gd" id="1_bqqt6"]
 [ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://cu7mforu4hdmd" path="res://objects/player/target_cam.gd" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://txo7n77gb0aj" path="res://objects/ui/load_scene.gd" id="3_8ln24"]
 [ext_resource type="Shader" uid="uid://prvdvmnrntfr" path="res://shaders/point.gdshader" id="3_wu84c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekxnf"]
@@ -115,6 +116,8 @@ theme_override_font_sizes/font_size = 23
 [node name="Button2" type="Button" parent="Node2D/CanvasLayer/CenterContainer/VBoxContainer" unique_id=1806840516]
 layout_mode = 2
 text = "Tutorial"
+script = ExtResource("3_8ln24")
+level_index = 0
 
 [node name="TextureRect" type="TextureRect" parent="Node2D/CanvasLayer/CenterContainer/VBoxContainer/Button2" unique_id=340396180]
 material = SubResource("ShaderMaterial_bqqt6")

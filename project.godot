@@ -15,9 +15,12 @@ run/main_scene="uid://d238wdbgmoe1k"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneManager="*uid://caingp6gkj6ot"
+
 [display]
 
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]

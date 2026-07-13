@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djq6frtbmlqxp" path="res://objects/ui/pause_menu.gd" id="1_3ynnj"]
 [ext_resource type="Resource" uid="uid://cibqool5tvujm" path="res://game_objects/game_state.tres" id="2_phdi0"]
+[ext_resource type="Script" uid="uid://txo7n77gb0aj" path="res://objects/ui/load_scene.gd" id="3_phdi0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ynnj"]
 content_margin_left = 15.0
@@ -52,3 +53,5 @@ text = "Restart"
 [node name="Button3" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1565672763]
 layout_mode = 2
 text = "Exit"
+script = ExtResource("3_phdi0")
+main_menu = true

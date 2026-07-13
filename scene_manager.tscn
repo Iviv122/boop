@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://caingp6gkj6ot"]
+
+[ext_resource type="Script" uid="uid://cnamqbbhdtpmr" path="res://objects/globals/my_scene_manager.gd" id="1_jo5df"]
+[ext_resource type="PackedScene" uid="uid://bk4ig43ng7jy7" path="res://scenes/main_menu.tscn" id="2_q0i0d"]
+[ext_resource type="PackedScene" uid="uid://d238wdbgmoe1k" path="res://scenes/levels/1.tscn" id="3_opu64"]
+
+[node name="SceneManager" type="Node2D" unique_id=466875860]
+script = ExtResource("1_jo5df")
+main_menu = ExtResource("2_q0i0d")
+levels = Array[PackedScene]([ExtResource("3_opu64")])
