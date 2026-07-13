@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c2n4upeig88tk" path="res://objects/ui/main_menu_manager.gd" id="3_oa1go"]
 [ext_resource type="Script" uid="uid://d4mfrn10b2pre" path="res://objects/ui/level_selector.gd" id="3_rtw2f"]
 [ext_resource type="Shader" uid="uid://prvdvmnrntfr" path="res://shaders/point.gdshader" id="3_wu84c"]
+[ext_resource type="Script" uid="uid://dr1r5cj3q0fl5" path="res://objects/ui/select_screen.gd" id="5_tbmy8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekxnf"]
 shader = ExtResource("1_l6cm7")
@@ -68,25 +69,45 @@ off = 1020.0
 offset = Vector2(0, -1020)
 transform = Transform2D(1, 0, 0, 1, 0, -1020)
 
-[node name="Label" type="Label" parent="Node2D/LevelSelect" unique_id=2118423164]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 178.66667
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 128
-text = "SelectLevel!"
-label_settings = SubResource("LabelSettings_ekxnf")
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="HFlowContainer" type="HFlowContainer" parent="Node2D/LevelSelect" unique_id=1881949179]
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/LevelSelect" unique_id=777266608]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Node2D/LevelSelect/VBoxContainer" unique_id=2118423164]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "Select Level!"
+label_settings = SubResource("LabelSettings_ekxnf")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Node2D/LevelSelect/VBoxContainer" unique_id=1881949179]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 script = ExtResource("3_rtw2f")
+
+[node name="Button" type="Button" parent="Node2D/LevelSelect" unique_id=1788367541 node_paths=PackedStringArray("manager")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.5
+offset_top = -31.0
+offset_right = 22.5
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_position = Vector2(0, -20)
+text = "Back"
+script = ExtResource("5_tbmy8")
+manager = NodePath("../..")
+id = 1
 
 [node name="MainMenu" type="CanvasLayer" parent="Node2D" unique_id=211922094]
 
@@ -135,12 +156,13 @@ theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5
 
-[node name="Button" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Play/MarginContainer" unique_id=2092275449]
+[node name="Button" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Play/MarginContainer" unique_id=2092275449 node_paths=PackedStringArray("manager")]
 z_index = -1
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_font_sizes/font_size = 23
-script = ExtResource("3_8ln24")
+script = ExtResource("5_tbmy8")
+manager = NodePath("../../../../../..")
 
 [node name="Button2" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=1806840516]
 layout_mode = 2
@@ -160,6 +182,13 @@ grow_horizontal = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(32, -32)
 texture = SubResource("GradientTexture2D_wu84c")
+
+[node name="Button" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=143497890 node_paths=PackedStringArray("manager")]
+layout_mode = 2
+text = "Settings"
+script = ExtResource("5_tbmy8")
+manager = NodePath("../../../..")
+id = 2
 
 [node name="Button3" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=11391658]
 layout_mode = 2
@@ -181,3 +210,20 @@ label_settings = SubResource("LabelSettings_ekxnf")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="Button" type="Button" parent="Node2D/Settings" unique_id=1407912997 node_paths=PackedStringArray("manager")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+script = ExtResource("5_tbmy8")
+manager = NodePath("../..")
+id = 1

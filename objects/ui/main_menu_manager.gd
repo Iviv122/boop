@@ -1,24 +1,36 @@
 extends Node2D
 class_name MainMenuManager
 
+@export var init_screen : int = 1
 @export var off : float = 1920
-var curr_id : int = 1
-
 var t : Tween
 
 func _ready() -> void:
-	change(0)
-	await  get_tree().create_timer(3).timeout
-	change(1)
-	await  get_tree().create_timer(3).timeout
-	change(2)
+	change_instantly(init_screen)
+
+
+func change_instantly(focus_id:int) -> void:
+	var ind : int = 0
+	var it = get_child(focus_id)
+
+	for i in get_children():
+		if ind != focus_id:
+			i.offset.y = off
+		ind += 1
+
+	it.offset.y = 0
 
 func change(focus_id:int) -> void:
 	if t:
 		t.kill()
 	t = create_tween()
 
-	for i in get_children():
-		t.tween_property(i,"offset:y",i.offset.y+(curr_id - focus_id)*off,0.2)
+	var ind : int = 0
+	var it = get_child(focus_id)
 
-	curr_id = focus_id
+	for i in get_children():
+		if ind != focus_id:
+			t.tween_property(i,"offset:y",off,0.2)
+		ind += 1
+
+	t.tween_property(it,"offset:y",0,0.2)
