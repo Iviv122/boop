@@ -4,6 +4,8 @@
 [ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://cu7mforu4hdmd" path="res://objects/player/target_cam.gd" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://txo7n77gb0aj" path="res://objects/ui/load_scene.gd" id="3_8ln24"]
+[ext_resource type="Script" uid="uid://c2n4upeig88tk" path="res://objects/ui/main_menu_manager.gd" id="3_oa1go"]
+[ext_resource type="Script" uid="uid://d4mfrn10b2pre" path="res://objects/ui/level_selector.gd" id="3_rtw2f"]
 [ext_resource type="Shader" uid="uid://prvdvmnrntfr" path="res://shaders/point.gdshader" id="3_wu84c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekxnf"]
@@ -59,10 +61,36 @@ material = SubResource("ShaderMaterial_ekxnf")
 texture = SubResource("GradientTexture2D_g36xy")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=2136784298]
+script = ExtResource("3_oa1go")
+off = 1020.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Node2D" unique_id=211922094]
+[node name="LevelSelect" type="CanvasLayer" parent="Node2D" unique_id=1346485006]
+offset = Vector2(0, -1020)
+transform = Transform2D(1, 0, 0, 1, 0, -1020)
 
-[node name="Label" type="Label" parent="Node2D/CanvasLayer" unique_id=2013864653]
+[node name="Label" type="Label" parent="Node2D/LevelSelect" unique_id=2118423164]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 178.66667
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "SelectLevel!"
+label_settings = SubResource("LabelSettings_ekxnf")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Node2D/LevelSelect" unique_id=1881949179]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_rtw2f")
+
+[node name="MainMenu" type="CanvasLayer" parent="Node2D" unique_id=211922094]
+
+[node name="Label" type="Label" parent="Node2D/MainMenu" unique_id=2013864653]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 175.0
@@ -74,18 +102,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="CenterContainer" type="CenterContainer" parent="Node2D/CanvasLayer" unique_id=1870227018]
+[node name="CenterContainer" type="CenterContainer" parent="Node2D/MainMenu" unique_id=1870227018]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/CanvasLayer/CenterContainer" unique_id=983625430]
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/MainMenu/CenterContainer" unique_id=983625430]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Play" type="Label" parent="Node2D/CanvasLayer/CenterContainer/VBoxContainer" unique_id=690327398]
+[node name="Play" type="Label" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=690327398]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -95,7 +123,7 @@ text = "PLAY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Node2D/CanvasLayer/CenterContainer/VBoxContainer/Play" unique_id=539880690]
+[node name="MarginContainer" type="MarginContainer" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Play" unique_id=539880690]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,19 +135,20 @@ theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5
 
-[node name="Button" type="Button" parent="Node2D/CanvasLayer/CenterContainer/VBoxContainer/Play/MarginContainer" unique_id=2092275449]
+[node name="Button" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Play/MarginContainer" unique_id=2092275449]
 z_index = -1
 layout_mode = 2
 offset_transform_enabled = true
 theme_override_font_sizes/font_size = 23
-
-[node name="Button2" type="Button" parent="Node2D/CanvasLayer/CenterContainer/VBoxContainer" unique_id=1806840516]
-layout_mode = 2
-text = "Tutorial"
 script = ExtResource("3_8ln24")
-level_index = 0
 
-[node name="TextureRect" type="TextureRect" parent="Node2D/CanvasLayer/CenterContainer/VBoxContainer/Button2" unique_id=340396180]
+[node name="Button2" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=1806840516]
+layout_mode = 2
+text = "PlayGround"
+script = ExtResource("3_8ln24")
+playground = true
+
+[node name="TextureRect" type="TextureRect" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Button2" unique_id=340396180]
 material = SubResource("ShaderMaterial_bqqt6")
 layout_mode = 1
 anchors_preset = 1
@@ -132,7 +161,23 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(32, -32)
 texture = SubResource("GradientTexture2D_wu84c")
 
-[node name="Button3" type="Button" parent="Node2D/CanvasLayer/CenterContainer/VBoxContainer" unique_id=11391658]
+[node name="Button3" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=11391658]
 layout_mode = 2
 text = "Exit"
 script = ExtResource("1_bqqt6")
+
+[node name="Settings" type="CanvasLayer" parent="Node2D" unique_id=1971342824]
+offset = Vector2(0, 1020)
+transform = Transform2D(1, 0, 0, 1, 0, 1020)
+
+[node name="Label" type="Label" parent="Node2D/Settings" unique_id=1794874516]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "Settings"
+label_settings = SubResource("LabelSettings_ekxnf")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
