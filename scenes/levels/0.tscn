@@ -12,6 +12,7 @@
 [ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="10_j0jco"]
 [ext_resource type="Texture2D" uid="uid://eefvs3uafu2b" path="res://sprites/kb_light_all.png" id="11_j0jco"]
 [ext_resource type="Script" uid="uid://bucma1p1f6drk" path="res://objects/util/run_animationSprite.gd" id="12_gprjd"]
+[ext_resource type="Texture2D" uid="uid://cdwy3iksxk3vp" path="res://sprites/shift.png" id="12_jf0s2"]
 [ext_resource type="PackedScene" uid="uid://btufq8xxxwk44" path="res://game_objects/pause_menu.tscn" id="13_6j3rm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aftt"]
@@ -158,13 +159,13 @@ region = Rect2(0, 288, 16, 16)
 atlas = ExtResource("11_j0jco")
 region = Rect2(32, 288, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xb0k2"]
-atlas = ExtResource("11_j0jco")
-region = Rect2(128, 80, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vv56a"]
+atlas = ExtResource("12_jf0s2")
+region = Rect2(0, 0, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hutbg"]
-atlas = ExtResource("11_j0jco")
-region = Rect2(160, 80, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kgux"]
+atlas = ExtResource("12_jf0s2")
+region = Rect2(32, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nijki"]
 atlas = ExtResource("11_j0jco")
@@ -241,10 +242,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xb0k2")
+"texture": SubResource("AtlasTexture_vv56a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hutbg")
+"texture": SubResource("AtlasTexture_6kgux")
 }],
 "loop": 1,
 "name": &"shift",

@@ -13,10 +13,8 @@ func _ready() -> void:
 		var b = Button.new()
 		b.set_script(LoadLevelScript)
 
-		num = get_num()-1
-		b.level_index = num
-
-		b.text = str(num+1)
-		b.pressed.connect(func(): print(b.text))
+		var tnum = get_num()-1
+		b.level_index = tnum
+		b.text = str(tnum+1)
 
 		add_child(b)
