@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://n0oi5ta6jalg" path="res://game_objects/spawner.tscn" id="6_gprjd"]
 [ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="7_6j3rm"]
 [ext_resource type="Script" uid="uid://clo6fqrgi3kq3" path="res://objects/env/item_spawner.gd" id="8_725xe"]
-[ext_resource type="Resource" uid="uid://k1qefq5rkwsh" path="res://game_objects/item_bus.tres" id="9_j0jco"]
-[ext_resource type="Resource" uid="uid://bjqvvqh2nfwl4" path="res://game_objects/player_bus.tres" id="10_gprjd"]
+[ext_resource type="Resource" uid="uid://k1qefq5rkwsh" path="res://game_objects/busses/item_bus.tres" id="9_j0jco"]
+[ext_resource type="Resource" uid="uid://bjqvvqh2nfwl4" path="res://game_objects/busses/player_bus.tres" id="10_gprjd"]
 [ext_resource type="PackedScene" uid="uid://btufq8xxxwk44" path="res://game_objects/pause_menu.tscn" id="13_6j3rm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aftt"]

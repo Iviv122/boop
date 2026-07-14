@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cvsjc2og14f82" path="res://objects/env/spawn_point.gd" id="1_sogkx"]
 [ext_resource type="PackedScene" uid="uid://c440gcpynebco" path="res://game_objects/player.tscn" id="2_pqort"]
 [ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="3_4e137"]
-[ext_resource type="Resource" uid="uid://ct6mkhea8qalv" path="res://game_objects/spawnpoint_bus.tres" id="3_brwn1"]
+[ext_resource type="Resource" uid="uid://ct6mkhea8qalv" path="res://game_objects/busses/spawnpoint_bus.tres" id="3_brwn1"]
 [ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="4_esckn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkisx"]
