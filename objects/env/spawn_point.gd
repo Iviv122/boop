@@ -7,6 +7,7 @@ class_name SpawnPoint
 @export var first : bool = false
 @export var spawnPointChannel : SpawnPointChannel
 @export var toRemove : Array[Node2D]
+@export var spawn_camera : bool = true
 
 var id : int
 
@@ -50,6 +51,8 @@ func try_spawn(other_id: int) -> void:
 		spawn()
 
 func create_cam() -> void:
+	if !spawn_camera:
+		return
 	if getCamera():
 		return;
 	setCamera(TargetCam.new())
@@ -70,5 +73,5 @@ func spawn() -> void:
 	getPlayer().global_position = global_position
 	get_tree().current_scene.add_child.call_deferred(getPlayer())
 
-	if getCamera():
+	if getCamera() && spawn_camera:
 		getCamera().target = getPlayer()
