@@ -112,12 +112,12 @@ shader_parameter/stripe_bias = 2.5
 shader_parameter/speed = 0.1
 shader_parameter/angle = 0.7854
 
-[sub_resource type="Gradient" id="Gradient_4d7sh"]
+[sub_resource type="Gradient" id="Gradient_jf0s2"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sjybn"]
-gradient = SubResource("Gradient_4d7sh")
+gradient = SubResource("Gradient_jf0s2")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gprjd"]
 atlas = ExtResource("11_j0jco")
