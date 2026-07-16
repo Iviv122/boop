@@ -1,3 +1,16 @@
 [gd_scene format=3 uid="uid://dkgrb4u4i5gum"]
 
-[node name="FadeSreen" type="CanvasLayer" unique_id=2089012581]
+[ext_resource type="Script" uid="uid://b3umghhj3ulcs" path="res://objects/ui/fade_screen.gd" id="1_cuifx"]
+
+[node name="FadeSreen" type="CanvasLayer" unique_id=386772582 node_paths=PackedStringArray("colorRect")]
+script = ExtResource("1_cuifx")
+colorRect = NodePath("ColorRect")
+metadata/_custom_type_script = "uid://b3umghhj3ulcs"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1722574065]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

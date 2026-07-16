@@ -1,26 +1,22 @@
-extends ColorRect
+extends CanvasLayer
 class_name FadeScreen
 
-@export var player_channel : PlayerBus
+@export var colorRect : ColorRect
 
 var tween : Tween
 
-func _ready() -> void:
-	player_channel.spawn.connect(fade_out)
-	player_channel.death.connect(fade_in)
 
-func fade_in(_player : PlayerBody) -> void:
-
-	print(_player)
+func fade_in(duration : float) -> void:
+	print("in")
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	tween.tween_property(self,"self_modulate:a",1,0.1)
+	tween.tween_property(colorRect,"self_modulate:a",1,duration)
 
-func fade_out(_player : PlayerBody) -> void:
+func fade_out(duration : float) -> void:
 
-	print(_player)
+	print("out")
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	tween.tween_property(self,"self_modulate:a",0,0.1)
+	tween.tween_property(colorRect,"self_modulate:a",0,duration)
