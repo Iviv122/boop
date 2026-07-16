@@ -7,9 +7,8 @@ class_name MovingRoot
 @export var reset_bus : ItemBus
 @export var gameState : GameState
 
-var ind : int
+var ind : int = 0
 var init_pos : Vector2
-var curr_point : Vector2
 signal reached
 
 func _ready() -> void:
@@ -23,17 +22,15 @@ func reset() -> void:
 	global_position = init_pos
 	ind = 0
 
-
 func move_iter() -> void:
-	curr_point = points[ind]
-	ind =  (ind + 1) % points.size()
+	ind = (ind + 1) % points.size()
 
 func _process(delta: float) -> void:
 
 	if gameState.isPaused():
 		return
 
-	if global_position.is_equal_approx(curr_point):
+	if global_position.is_equal_approx(points[ind]):
 		reached.emit()
 
-	global_position = global_position.move_toward(curr_point,speed*delta)
+	global_position = global_position.move_toward(points[ind],speed*delta)

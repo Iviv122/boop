@@ -1,5 +1,5 @@
+@abstract class_name PickUp
 extends Area2D
-class_name PickUp
 
 @export var pick_up_effect : PackedScene
 @export var modulate_effect_self : bool = true

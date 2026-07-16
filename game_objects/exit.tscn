@@ -9,8 +9,8 @@ shader = ExtResource("2_bt11y")
 shader_parameter/size = 25.00000114
 shader_parameter/color1 = Color(0.8901961, 0.9019608, 1, 1)
 shader_parameter/color2 = Color(0.13333334, 0.10980392, 0.101960786, 1)
-shader_parameter/speedX = 54.0
-shader_parameter/speedY = 54.0
+shader_parameter/speedX = 12.0
+shader_parameter/speedY = 12.0
 
 [sub_resource type="Gradient" id="Gradient_ibexg"]
 offsets = PackedFloat32Array(1)
