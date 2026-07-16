@@ -31,6 +31,7 @@ var dash_cooldown : float = 0
 var dash_duration : float = 0
 var dash_particle_material : ParticleProcessMaterial
 var coyote_duration : float = 0
+var active : bool = true
 
 signal died
 signal spawned
@@ -106,7 +107,9 @@ func handle_durations(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 
 	if game_state.isPaused():
-		return;
+		return
+	if !active:
+		return
 
 	handle_state()
 	if state == State.Air:
