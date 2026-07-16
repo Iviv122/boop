@@ -8,6 +8,7 @@ class_name SpawnPoint
 @export var spawnPointChannel : SpawnPointChannel
 @export var toRemove : Array[Node2D]
 @export var spawn_camera : bool = true
+@export var spawn_effect : PackedScene
 
 var id : int
 
@@ -33,6 +34,11 @@ func _ready() -> void:
 		body_entered.connect(try_activate)
 
 
+func svfx() -> void:
+	var eff = spawn_effect.instantiate() as GPUParticles2D
+	eff.restart()
+	eff.global_position = global_position
+	get_tree().current_scene.add_child.call_deferred(eff)
 
 func activate():
 
@@ -69,6 +75,9 @@ func create_cam() -> void:
 func spawn() -> void:
 	if getPlayer():
 		getPlayer().queue_free()
+
+	svfx()
+
 	setPlayer(player.instantiate())
 	getPlayer().global_position = global_position
 	get_tree().current_scene.add_child.call_deferred(getPlayer())

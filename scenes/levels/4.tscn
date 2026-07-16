@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dugy5dbtawnun" path="res://objects/env/kill_area.gd" id="13_d6cry"]
 [ext_resource type="Script" uid="uid://bomfvhi5s7po6" path="res://objects/env/moving_object.gd" id="13_ij7pi"]
 [ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="14_ij7pi"]
+[ext_resource type="Resource" uid="uid://cibqool5tvujm" path="res://game_objects/busses/game_state.tres" id="14_mew47"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aftt"]
 texture = ExtResource("1_d6cry")
@@ -322,8 +323,9 @@ position = Vector2(936, 1556)
 scale = Vector2(7.9, 4.9)
 script = ExtResource("13_ij7pi")
 points = Array[Vector2]([Vector2(531, 1556), Vector2(1331, 1556)])
-speed = 1.0
+speed = 400.0
 reset_bus = ExtResource("6_7afus")
+gameState = ExtResource("14_mew47")
 metadata/_custom_type_script = "uid://bomfvhi5s7po6"
 
 [node name="KillArea" type="Area2D" parent="MovingRoot" unique_id=1772577673]

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c440gcpynebco" path="res://game_objects/player.tscn" id="2_pqort"]
 [ext_resource type="Shader" uid="uid://l5j4jwuv4lkt" path="res://shaders/zone.gdshader" id="3_4e137"]
 [ext_resource type="Resource" uid="uid://ct6mkhea8qalv" path="res://game_objects/busses/spawnpoint_bus.tres" id="3_brwn1"]
+[ext_resource type="PackedScene" uid="uid://cqblvl2l55fyv" path="res://game_objects/particles/spawn_effect.tscn" id="4_anjj4"]
 [ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="4_esckn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkisx"]
@@ -42,6 +43,7 @@ script = ExtResource("1_sogkx")
 player = ExtResource("2_pqort")
 spawnPointChannel = ExtResource("3_brwn1")
 toRemove = [NodePath("Activate_area"), NodePath("CollisionShape2D")]
+spawn_effect = ExtResource("4_anjj4")
 metadata/_custom_type_script = "uid://cvsjc2og14f82"
 
 [node name="Activate_area" type="Sprite2D" parent="." unique_id=1411134000]

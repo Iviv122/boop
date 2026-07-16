@@ -5,11 +5,11 @@ class_name MovingRoot
 @export var speed : float = 0
 @export var loop : bool = true
 @export var reset_bus : ItemBus
+@export var gameState : GameState
 
-var t : Tween
 var ind : int
 var init_pos : Vector2
-
+var curr_point : Vector2
 signal reached
 
 func _ready() -> void:
@@ -19,23 +19,21 @@ func _ready() -> void:
 	reset_bus.level_reset.connect(reset)
 
 func reset() -> void:
-	if t:
-		t.stop()
-		t.kill()
 	print("reset")
 	global_position = init_pos
 	ind = 0
 
 
 func move_iter() -> void:
-	move(points[ind])
+	curr_point = points[ind]
 	ind =  (ind + 1) % points.size()
 
-func move(_point : Vector2) -> void:
-	if t:
-		t.kill()
-	t = create_tween()
+func _process(delta: float) -> void:
 
-	t.tween_property(self,"global_position",_point,1/speed)
-	await get_tree().create_timer(1/speed).timeout
-	reached.emit()
+	if gameState.isPaused():
+		return
+
+	if global_position.is_equal_approx(curr_point):
+		reached.emit()
+
+	global_position = global_position.move_toward(curr_point,speed*delta)

@@ -1,3 +1,42 @@
 [gd_scene format=3 uid="uid://cqblvl2l55fyv"]
 
-[node name="SpawnEffect" type="Node2D" unique_id=1028839543]
+[sub_resource type="Gradient" id="Gradient_aamd1"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.4888889, 0.5472222, 0.7972222)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g36xy"]
+gradient = SubResource("Gradient_aamd1")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Curve" id="Curve_puklo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_aamd1"]
+curve = SubResource("Curve_puklo")
+
+[sub_resource type="Curve" id="Curve_aamd1"]
+_data = [Vector2(0, 0.27611935), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_puklo"]
+curve = SubResource("Curve_aamd1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_puklo"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_puklo")
+alpha_curve = SubResource("CurveTexture_aamd1")
+
+[node name="SpawnEffect" type="GPUParticles2D" unique_id=455647742]
+emitting = false
+amount = 3
+texture = SubResource("GradientTexture2D_g36xy")
+lifetime = 0.32
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_puklo")
