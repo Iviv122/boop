@@ -21,7 +21,6 @@ SceneManager="*uid://caingp6gkj6ot"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]

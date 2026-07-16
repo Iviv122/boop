@@ -4,6 +4,7 @@ class_name MovingRoot
 @export var points : Array[Vector2]
 @export var speed : float = 0
 @export var loop : bool = true
+@export var reset_bus : ItemBus
 
 var t : Tween
 var ind : int
@@ -15,8 +16,13 @@ func _ready() -> void:
 	init_pos = global_position
 	move_iter()
 	reached.connect(move_iter)
+	reset_bus.level_reset.connect(reset)
 
 func reset() -> void:
+	if t:
+		t.stop()
+		t.kill()
+	print("reset")
 	global_position = init_pos
 	ind = 0
 
