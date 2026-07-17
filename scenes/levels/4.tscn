@@ -308,7 +308,7 @@ metadata/_custom_type_script = "uid://clo6fqrgi3kq3"
 
 [node name="Exit" parent="." unique_id=1884704850 instance=ExtResource("9_uoyk8")]
 position = Vector2(932, 2276)
-next_ind = 1
+next_ind = 5
 
 [node name="s" type="AnimatedSprite2D" parent="." unique_id=1739445876]
 texture_filter = 1
