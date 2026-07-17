@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://d4mfrn10b2pre" path="res://objects/ui/level_selector.gd" id="3_rtw2f"]
 [ext_resource type="Shader" uid="uid://prvdvmnrntfr" path="res://shaders/point.gdshader" id="3_wu84c"]
 [ext_resource type="Script" uid="uid://dr1r5cj3q0fl5" path="res://objects/ui/select_screen.gd" id="5_tbmy8"]
+[ext_resource type="Script" uid="uid://dubsvf8aj3wre" path="res://objects/ui/ui_offset.gd" id="7_jk1qb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekxnf"]
 shader = ExtResource("1_l6cm7")
@@ -130,6 +131,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Node2D/MainMenu/CenterContainer" unique_id=983625430]
 layout_mode = 2
@@ -140,6 +142,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 offset_transform_enabled = true
+mouse_filter = 1
 theme_override_font_sizes/font_size = 34
 text = "PLAY"
 horizontal_alignment = 1
@@ -165,6 +168,17 @@ theme_override_font_sizes/font_size = 23
 script = ExtResource("5_tbmy8")
 manager = NodePath("../../../../../..")
 
+[node name="UIOffset" type="Control" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Play/MarginContainer/Button" unique_id=722738806 node_paths=PackedStringArray("change_parent", "listen_parent")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_jk1qb")
+target_offset = Vector2(20, 0)
+time = 0.2
+change_parent = NodePath("../../..")
+listen_parent = NodePath("..")
+metadata/_custom_type_script = "uid://dubsvf8aj3wre"
+
 [node name="Button2" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=1806840516]
 layout_mode = 2
 text = "PlayGround"
@@ -184,6 +198,17 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(32, -32)
 texture = SubResource("GradientTexture2D_wu84c")
 
+[node name="UIOffset" type="Control" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Button2" unique_id=1670072396 node_paths=PackedStringArray("change_parent", "listen_parent")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_jk1qb")
+target_offset = Vector2(20, 0)
+time = 0.2
+change_parent = NodePath("..")
+listen_parent = NodePath("..")
+metadata/_custom_type_script = "uid://dubsvf8aj3wre"
+
 [node name="Button" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=143497890 node_paths=PackedStringArray("manager")]
 layout_mode = 2
 text = "Settings"
@@ -191,10 +216,32 @@ script = ExtResource("5_tbmy8")
 manager = NodePath("../../../..")
 id = 2
 
+[node name="UIOffset" type="Control" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Button" unique_id=1350634199 node_paths=PackedStringArray("change_parent", "listen_parent")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_jk1qb")
+target_offset = Vector2(20, 0)
+time = 0.2
+change_parent = NodePath("..")
+listen_parent = NodePath("..")
+metadata/_custom_type_script = "uid://dubsvf8aj3wre"
+
 [node name="Button3" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=11391658]
 layout_mode = 2
 text = "Exit"
 script = ExtResource("1_bqqt6")
+
+[node name="UIOffset" type="Control" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Button3" unique_id=2085930762 node_paths=PackedStringArray("change_parent", "listen_parent")]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_jk1qb")
+target_offset = Vector2(20, 0)
+time = 0.2
+change_parent = NodePath("..")
+listen_parent = NodePath("..")
+metadata/_custom_type_script = "uid://dubsvf8aj3wre"
 
 [node name="Settings" type="CanvasLayer" parent="Node2D" unique_id=1971342824]
 offset = Vector2(0, 1020)
