@@ -8,14 +8,14 @@ class_name UIOffset
 @export var listen_parent : Control
 var t : Tween
 
-func a1() -> void:
+func move_in() -> void:
 	print("in")
 	if t:
 		t.kill()
 	t = create_tween()
 	t.tween_property(change_parent,"offset_transform_position",target_offset,time).set_trans(Tween.TRANS_QUAD)
 
-func a2() -> void:
+func move_out() -> void:
 
 	print("out")
 	if t:
@@ -28,5 +28,5 @@ func _ready() -> void:
 
 	change_parent.offset_transform_enabled = true
 
-	listen_parent.mouse_entered.connect(a1)
-	listen_parent.mouse_exited.connect(a2)
+	listen_parent.mouse_entered.connect(move_in)
+	listen_parent.mouse_exited.connect(move_out)

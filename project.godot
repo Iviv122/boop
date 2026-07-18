@@ -19,11 +19,13 @@ config/icon="res://icon.svg"
 
 SceneManager="*uid://caingp6gkj6ot"
 FadeSreen="*uid://dkgrb4u4i5gum"
+SceneMouseTrail="*uid://dy2o2v326bavg"
 
 [display]
 
 window/size/mode=3
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://dyxwdjbiak4at"
 
 [editor_plugins]
 
@@ -33,6 +35,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 theme/default_font_multichannel_signed_distance_field=true
 theme/default_font_generate_mipmaps=true
+theme/custom="uid://bw1drthhlr12p"
 
 [input]
 

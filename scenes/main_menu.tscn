@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://d4mfrn10b2pre" path="res://objects/ui/level_selector.gd" id="3_rtw2f"]
 [ext_resource type="Shader" uid="uid://prvdvmnrntfr" path="res://shaders/point.gdshader" id="3_wu84c"]
 [ext_resource type="Script" uid="uid://dr1r5cj3q0fl5" path="res://objects/ui/select_screen.gd" id="5_tbmy8"]
+[ext_resource type="Theme" uid="uid://bw1drthhlr12p" path="res://game_objects/globals/my_theme.tres" id="7_5dd4i"]
 [ext_resource type="Script" uid="uid://dubsvf8aj3wre" path="res://objects/ui/ui_offset.gd" id="7_jk1qb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekxnf"]
@@ -90,9 +91,24 @@ uppercase = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
 alignment = 1
 script = ExtResource("3_rtw2f")
 LoadLevelScript = ExtResource("3_8ln24")
+
+[node name="Button" type="Button" parent="Node2D/LevelSelect/VBoxContainer/HFlowContainer" unique_id=696281547]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="Node2D/LevelSelect/VBoxContainer/HFlowContainer" unique_id=1933585471]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "1"
+
+[node name="Button3" type="Button" parent="Node2D/LevelSelect/VBoxContainer/HFlowContainer" unique_id=1207236711]
+layout_mode = 2
+text = "1"
 
 [node name="Button" type="Button" parent="Node2D/LevelSelect" unique_id=1788367541 node_paths=PackedStringArray("manager")]
 anchors_preset = 7
@@ -162,8 +178,10 @@ theme_override_constants/margin_bottom = -5
 
 [node name="Button" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Play/MarginContainer" unique_id=2092275449 node_paths=PackedStringArray("manager")]
 z_index = -1
+texture_filter = 1
 layout_mode = 2
 offset_transform_enabled = true
+theme = ExtResource("7_5dd4i")
 theme_override_font_sizes/font_size = 23
 script = ExtResource("5_tbmy8")
 manager = NodePath("../../../../../..")
