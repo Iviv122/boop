@@ -77,6 +77,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="Node2D/LevelSelect/VBoxContainer" unique_id=2118423164]
 layout_mode = 2
@@ -116,11 +117,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -22.5
-offset_top = -31.0
-offset_right = 22.5
+offset_left = -20.5
+offset_top = -48.0
+offset_right = 20.5
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 offset_transform_position = Vector2(0, -20)
 text = "Back"
 script = ExtResource("5_tbmy8")
@@ -268,7 +272,7 @@ transform = Transform2D(1, 0, 0, 1, 0, 1020)
 [node name="Label" type="Label" parent="Node2D/Settings" unique_id=1794874516]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 175.0
+offset_bottom = 178.66667
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 128
 text = "Settings"
@@ -277,18 +281,62 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Button" type="Button" parent="Node2D/Settings" unique_id=1407912997 node_paths=PackedStringArray("manager")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Settings" unique_id=1200169800]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 157.0
+offset_right = -100.0
+offset_bottom = -122.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=2083004289]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Node2D/Settings/VBoxContainer/HBoxContainer" unique_id=1210060998]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="CheckBox" type="CheckBox" parent="Node2D/Settings/VBoxContainer/HBoxContainer" unique_id=1078810582]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=1067624379]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Node2D/Settings/VBoxContainer/HBoxContainer2" unique_id=1208695431]
+layout_mode = 2
+text = "Master Sound"
+
+[node name="HSlider" type="HSlider" parent="Node2D/Settings/VBoxContainer/HBoxContainer2" unique_id=1591624739]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=469404272]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Node2D/Settings/VBoxContainer/HBoxContainer3" unique_id=821773462]
+layout_mode = 2
+text = "Setting1"
+
+[node name="CheckBox" type="CheckBox" parent="Node2D/Settings/VBoxContainer/HBoxContainer3" unique_id=1561784292]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Node2D/Settings" unique_id=1407912997 node_paths=PackedStringArray("manager")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.5
+offset_top = -48.0
+offset_right = 20.5
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Back"
 script = ExtResource("5_tbmy8")
 manager = NodePath("../..")
