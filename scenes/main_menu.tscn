@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dr1r5cj3q0fl5" path="res://objects/ui/select_screen.gd" id="5_tbmy8"]
 [ext_resource type="Theme" uid="uid://bw1drthhlr12p" path="res://game_objects/globals/my_theme.tres" id="7_5dd4i"]
 [ext_resource type="Script" uid="uid://dubsvf8aj3wre" path="res://objects/ui/ui_offset.gd" id="7_jk1qb"]
+[ext_resource type="Script" uid="uid://iqw4ql7or68i" path="res://objects/ui/settings/settings.gd" id="11_lgwnu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekxnf"]
 shader = ExtResource("1_l6cm7")
@@ -191,6 +192,7 @@ script = ExtResource("5_tbmy8")
 manager = NodePath("../../../../../..")
 
 [node name="UIOffset" type="Control" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Play/MarginContainer/Button" unique_id=722738806 node_paths=PackedStringArray("change_parent", "listen_parent")]
+custom_maximum_size = Vector2(0, 0)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -221,6 +223,7 @@ offset_transform_position = Vector2(32, -32)
 texture = SubResource("GradientTexture2D_wu84c")
 
 [node name="UIOffset" type="Control" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Button2" unique_id=1670072396 node_paths=PackedStringArray("change_parent", "listen_parent")]
+custom_maximum_size = Vector2(0, 0)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -265,9 +268,11 @@ change_parent = NodePath("..")
 listen_parent = NodePath("..")
 metadata/_custom_type_script = "uid://dubsvf8aj3wre"
 
-[node name="Settings" type="CanvasLayer" parent="Node2D" unique_id=1971342824]
+[node name="Settings" type="CanvasLayer" parent="Node2D" unique_id=1971342824 node_paths=PackedStringArray("vsync")]
 offset = Vector2(0, 1020)
 transform = Transform2D(1, 0, 0, 1, 0, 1020)
+script = ExtResource("11_lgwnu")
+vsync = NodePath("VBoxContainer/HBoxContainer4/VSync")
 
 [node name="Label" type="Label" parent="Node2D/Settings" unique_id=1794874516]
 anchors_preset = 10
@@ -294,14 +299,14 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=2083004289]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=1125065662]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Node2D/Settings/VBoxContainer/HBoxContainer" unique_id=1210060998]
+[node name="Label" type="Label" parent="Node2D/Settings/VBoxContainer/HBoxContainer4" unique_id=847307421]
 layout_mode = 2
-text = "Fullscreen"
+text = "VSync"
 
-[node name="CheckBox" type="CheckBox" parent="Node2D/Settings/VBoxContainer/HBoxContainer" unique_id=1078810582]
+[node name="VSync" type="CheckBox" parent="Node2D/Settings/VBoxContainer/HBoxContainer4" unique_id=2039482336]
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=1067624379]
@@ -315,14 +320,26 @@ text = "Master Sound"
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=469404272]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=81587113]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Node2D/Settings/VBoxContainer/HBoxContainer3" unique_id=821773462]
+[node name="Label" type="Label" parent="Node2D/Settings/VBoxContainer/HBoxContainer5" unique_id=1243836113]
 layout_mode = 2
-text = "Setting1"
+text = "Music Sound"
 
-[node name="CheckBox" type="CheckBox" parent="Node2D/Settings/VBoxContainer/HBoxContainer3" unique_id=1561784292]
+[node name="HSlider" type="HSlider" parent="Node2D/Settings/VBoxContainer/HBoxContainer5" unique_id=1322989106]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=175977746]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Node2D/Settings/VBoxContainer/HBoxContainer6" unique_id=1109201372]
+layout_mode = 2
+text = "SFX Sound"
+
+[node name="HSlider" type="HSlider" parent="Node2D/Settings/VBoxContainer/HBoxContainer6" unique_id=447807006]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="Button" type="Button" parent="Node2D/Settings" unique_id=1407912997 node_paths=PackedStringArray("manager")]

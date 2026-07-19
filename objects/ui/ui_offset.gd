@@ -30,3 +30,5 @@ func _ready() -> void:
 
 	listen_parent.mouse_entered.connect(move_in)
 	listen_parent.mouse_exited.connect(move_out)
+
+	custom_maximum_size = Vector2.ZERO
