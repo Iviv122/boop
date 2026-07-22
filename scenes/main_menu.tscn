@@ -278,11 +278,12 @@ metadata/_custom_type_script = "uid://dubsvf8aj3wre"
 
 [node name="ButtonVFX2" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Button3" unique_id=43064243 instance=ExtResource("7_flqon")]
 
-[node name="Settings" type="CanvasLayer" parent="Node2D" unique_id=1971342824 node_paths=PackedStringArray("vsync")]
+[node name="Settings" type="CanvasLayer" parent="Node2D" unique_id=1971342824 node_paths=PackedStringArray("vsync", "sounds")]
 offset = Vector2(0, 1020)
 transform = Transform2D(1, 0, 0, 1, 0, 1020)
 script = ExtResource("11_lgwnu")
 vsync = NodePath("VBoxContainer/HBoxContainer4/VSync")
+sounds = [NodePath("VBoxContainer/HBoxContainer5/music"), NodePath("VBoxContainer/HBoxContainer6/sfx")]
 
 [node name="Label" type="Label" parent="Node2D/Settings" unique_id=1794874516]
 anchors_preset = 10
@@ -321,19 +322,6 @@ layout_mode = 2
 
 [node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer4/VSync" unique_id=1211230382 instance=ExtResource("7_flqon")]
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=1067624379]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Node2D/Settings/VBoxContainer/HBoxContainer2" unique_id=1208695431]
-layout_mode = 2
-text = "Master Sound"
-
-[node name="HSlider" type="HSlider" parent="Node2D/Settings/VBoxContainer/HBoxContainer2" unique_id=1591624739]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-
-[node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer2/HSlider" unique_id=357283444 instance=ExtResource("7_flqon")]
-
 [node name="HBoxContainer5" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=81587113]
 layout_mode = 2
 
@@ -341,24 +329,30 @@ layout_mode = 2
 layout_mode = 2
 text = "Music Sound"
 
-[node name="HSlider" type="HSlider" parent="Node2D/Settings/VBoxContainer/HBoxContainer5" unique_id=1322989106]
+[node name="music" type="HSlider" parent="Node2D/Settings/VBoxContainer/HBoxContainer5" unique_id=1322989106]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+min_value = -80.0
+max_value = 20.0
+value = -10.0
 
-[node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer5/HSlider" unique_id=1125079408 instance=ExtResource("7_flqon")]
+[node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer5/music" unique_id=1125079408 instance=ExtResource("7_flqon")]
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=175977746]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Node2D/Settings/VBoxContainer/HBoxContainer6" unique_id=1109201372]
 layout_mode = 2
-text = "SFX Sound"
+text = "SFX Sound    "
 
-[node name="HSlider" type="HSlider" parent="Node2D/Settings/VBoxContainer/HBoxContainer6" unique_id=447807006]
+[node name="sfx" type="HSlider" parent="Node2D/Settings/VBoxContainer/HBoxContainer6" unique_id=447807006]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+min_value = -80.0
+max_value = 20.0
+value = -10.0
 
-[node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer6/HSlider" unique_id=521062138 instance=ExtResource("7_flqon")]
+[node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer6/sfx" unique_id=521062138 instance=ExtResource("7_flqon")]
 
 [node name="Button" type="Button" parent="Node2D/Settings" unique_id=1407912997 node_paths=PackedStringArray("manager")]
 custom_minimum_size = Vector2(200, 50)
@@ -379,3 +373,6 @@ manager = NodePath("../..")
 id = 1
 
 [node name="ButtonVFX" parent="Node2D/Settings/Button" unique_id=181572073 instance=ExtResource("7_flqon")]
+
+[connection signal="value_changed" from="Node2D/Settings/VBoxContainer/HBoxContainer5/music" to="Node2D/Settings" method="_on_music_value_changed"]
+[connection signal="value_changed" from="Node2D/Settings/VBoxContainer/HBoxContainer6/sfx" to="Node2D/Settings" method="_on_sfx_value_changed"]

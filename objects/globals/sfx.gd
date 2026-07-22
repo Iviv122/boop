@@ -25,6 +25,11 @@ func _ready():
 			p.finished.connect( func() : _on_stream_finished(p))
 
 
+func set_volume(val : float) -> void:
+	for i in get_children():
+		if i is AudioStreamPlayer:
+			i.volume_db = val
+
 func _on_urgent_stream_finished(stream):
 		urgent_available.append(stream)
 func urgent_play(sound_path):

@@ -4,6 +4,7 @@ extends Area2D
 @export var pick_up_effect : PackedScene
 @export var modulate_effect_self : bool = true
 @export var itemBus : ItemBus
+@export var pick_sound : AudioStream
 
 func destory_effect() -> void:
 	var eff : GPUParticles2D = pick_up_effect.instantiate()
@@ -27,6 +28,7 @@ func pick_up(node : Node2D) -> void:
 
 		register()
 		effect(node)
+		SFXINSTANCE.urgent_play(pick_sound)
 		destory_effect()
 		queue_free()
 
