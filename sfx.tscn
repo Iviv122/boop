@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://disy4ma7bocqo"]
+
+[ext_resource type="Script" uid="uid://0hq1yhf88uyn" path="res://objects/globals/sfx.gd" id="1_hlobe"]
+
+[node name="sfx" type="Node" unique_id=336969607]
+script = ExtResource("1_hlobe")
+metadata/_custom_type_script = "uid://0hq1yhf88uyn"

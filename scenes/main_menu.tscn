@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://prvdvmnrntfr" path="res://shaders/point.gdshader" id="3_wu84c"]
 [ext_resource type="Script" uid="uid://dr1r5cj3q0fl5" path="res://objects/ui/select_screen.gd" id="5_tbmy8"]
 [ext_resource type="Theme" uid="uid://bw1drthhlr12p" path="res://game_objects/globals/my_theme.tres" id="7_5dd4i"]
+[ext_resource type="PackedScene" uid="uid://ccojw1w37bsuq" path="res://game_objects/ui/button_vfx.tscn" id="7_flqon"]
 [ext_resource type="Script" uid="uid://dubsvf8aj3wre" path="res://objects/ui/ui_offset.gd" id="7_jk1qb"]
 [ext_resource type="Script" uid="uid://iqw4ql7or68i" path="res://objects/ui/settings/settings.gd" id="11_lgwnu"]
 
@@ -98,6 +99,7 @@ theme_override_constants/v_separation = 16
 alignment = 1
 script = ExtResource("3_rtw2f")
 LoadLevelScript = ExtResource("3_8ln24")
+ButtonSFX = ExtResource("7_flqon")
 
 [node name="Button" type="Button" parent="Node2D/LevelSelect/VBoxContainer/HFlowContainer" unique_id=696281547]
 layout_mode = 2
@@ -112,25 +114,25 @@ text = "1"
 layout_mode = 2
 text = "1"
 
-[node name="Button" type="Button" parent="Node2D/LevelSelect" unique_id=1788367541 node_paths=PackedStringArray("manager")]
+[node name="Button2" type="Button" parent="Node2D/LevelSelect" unique_id=274942376 node_paths=PackedStringArray("manager")]
+custom_minimum_size = Vector2(200, 50)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.5
-offset_top = -48.0
-offset_right = 20.5
-offset_bottom = -20.0
+offset_left = -100.0
+offset_top = -77.0
+offset_right = 100.0
+offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-offset_transform_position = Vector2(0, -20)
 text = "Back"
 script = ExtResource("5_tbmy8")
 manager = NodePath("../..")
 id = 1
+
+[node name="ButtonVFX" parent="Node2D/LevelSelect/Button2" unique_id=1208475356 instance=ExtResource("7_flqon")]
 
 [node name="MainMenu" type="CanvasLayer" parent="Node2D" unique_id=211922094]
 
@@ -203,6 +205,8 @@ change_parent = NodePath("../../..")
 listen_parent = NodePath("..")
 metadata/_custom_type_script = "uid://dubsvf8aj3wre"
 
+[node name="ButtonVFX" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Play/MarginContainer/Button" unique_id=1694826019 instance=ExtResource("7_flqon")]
+
 [node name="Button2" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=1806840516]
 layout_mode = 2
 text = "PlayGround"
@@ -234,6 +238,8 @@ change_parent = NodePath("..")
 listen_parent = NodePath("..")
 metadata/_custom_type_script = "uid://dubsvf8aj3wre"
 
+[node name="ButtonVFX2" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Button2" unique_id=971865813 instance=ExtResource("7_flqon")]
+
 [node name="Button" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=143497890 node_paths=PackedStringArray("manager")]
 layout_mode = 2
 text = "Settings"
@@ -252,6 +258,8 @@ change_parent = NodePath("..")
 listen_parent = NodePath("..")
 metadata/_custom_type_script = "uid://dubsvf8aj3wre"
 
+[node name="ButtonVFX2" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Button" unique_id=1057333150 instance=ExtResource("7_flqon")]
+
 [node name="Button3" type="Button" parent="Node2D/MainMenu/CenterContainer/VBoxContainer" unique_id=11391658]
 layout_mode = 2
 text = "Exit"
@@ -267,6 +275,8 @@ time = 0.2
 change_parent = NodePath("..")
 listen_parent = NodePath("..")
 metadata/_custom_type_script = "uid://dubsvf8aj3wre"
+
+[node name="ButtonVFX2" parent="Node2D/MainMenu/CenterContainer/VBoxContainer/Button3" unique_id=43064243 instance=ExtResource("7_flqon")]
 
 [node name="Settings" type="CanvasLayer" parent="Node2D" unique_id=1971342824 node_paths=PackedStringArray("vsync")]
 offset = Vector2(0, 1020)
@@ -290,10 +300,10 @@ uppercase = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = 157.0
-offset_right = -100.0
-offset_bottom = -122.0
+offset_left = 121.0
+offset_top = 147.0
+offset_right = -79.0
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
@@ -309,6 +319,8 @@ text = "VSync"
 [node name="VSync" type="CheckBox" parent="Node2D/Settings/VBoxContainer/HBoxContainer4" unique_id=2039482336]
 layout_mode = 2
 
+[node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer4/VSync" unique_id=1211230382 instance=ExtResource("7_flqon")]
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=1067624379]
 layout_mode = 2
 
@@ -319,6 +331,8 @@ text = "Master Sound"
 [node name="HSlider" type="HSlider" parent="Node2D/Settings/VBoxContainer/HBoxContainer2" unique_id=1591624739]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+
+[node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer2/HSlider" unique_id=357283444 instance=ExtResource("7_flqon")]
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=81587113]
 layout_mode = 2
@@ -331,6 +345,8 @@ text = "Music Sound"
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
+[node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer5/HSlider" unique_id=1125079408 instance=ExtResource("7_flqon")]
+
 [node name="HBoxContainer6" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=175977746]
 layout_mode = 2
 
@@ -342,19 +358,24 @@ text = "SFX Sound"
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
+[node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer6/HSlider" unique_id=521062138 instance=ExtResource("7_flqon")]
+
 [node name="Button" type="Button" parent="Node2D/Settings" unique_id=1407912997 node_paths=PackedStringArray("manager")]
+custom_minimum_size = Vector2(200, 50)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.5
-offset_top = -48.0
-offset_right = 20.5
-offset_bottom = -20.0
+offset_left = -100.0
+offset_top = -77.0
+offset_right = 100.0
+offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Back"
 script = ExtResource("5_tbmy8")
 manager = NodePath("../..")
 id = 1
+
+[node name="ButtonVFX" parent="Node2D/Settings/Button" unique_id=181572073 instance=ExtResource("7_flqon")]

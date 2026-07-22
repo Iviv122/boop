@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bhev053rxorpo" path="res://objects/env/exit.gd" id="1_ibexg"]
 [ext_resource type="Shader" uid="uid://c7jpf3epy1i0x" path="res://shaders/background1.gdshader" id="2_bt11y"]
 [ext_resource type="PackedScene" uid="uid://mcm61be1alck" path="res://game_objects/particles/confetti.tscn" id="2_yjyli"]
+[ext_resource type="AudioStream" uid="uid://dk6pmgkj7dd2i" path="res://sounds/sfx/win1.wav" id="3_852v4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ibexg"]
 shader = ExtResource("2_bt11y")
@@ -27,6 +28,7 @@ size = Vector2(128, 128)
 [node name="Exit" type="Area2D" unique_id=1884704850]
 script = ExtResource("1_ibexg")
 exit_effect = ExtResource("2_yjyli")
+exit_sound = ExtResource("3_852v4")
 metadata/_custom_type_script = "uid://bhev053rxorpo"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1668467671]

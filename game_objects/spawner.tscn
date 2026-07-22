@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://ct6mkhea8qalv" path="res://game_objects/busses/spawnpoint_bus.tres" id="3_brwn1"]
 [ext_resource type="PackedScene" uid="uid://cqblvl2l55fyv" path="res://game_objects/particles/spawn_effect.tscn" id="4_anjj4"]
 [ext_resource type="Shader" uid="uid://bttl1wkvo3401" path="res://shaders/pulsating.gdshader" id="4_esckn"]
+[ext_resource type="AudioStream" uid="uid://cvovummcqghrv" path="res://sounds/sfx/win.wav" id="5_gb6ch"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pkisx"]
 shader = ExtResource("3_4e137")
@@ -44,6 +45,7 @@ player = ExtResource("2_pqort")
 spawnPointChannel = ExtResource("3_brwn1")
 toRemove = [NodePath("Activate_area"), NodePath("CollisionShape2D")]
 spawn_effect = ExtResource("4_anjj4")
+activate_sound = ExtResource("5_gb6ch")
 metadata/_custom_type_script = "uid://cvsjc2og14f82"
 
 [node name="Activate_area" type="Sprite2D" parent="." unique_id=1411134000]

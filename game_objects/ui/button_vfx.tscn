@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ccojw1w37bsuq"]
+
+[ext_resource type="Script" uid="uid://ctf0a2xkkslbb" path="res://objects/ui/MyButton.gd" id="1_is650"]
+[ext_resource type="AudioStream" uid="uid://decapkcvmgpig" path="res://sounds/sfx/hover.wav" id="2_mqtoe"]
+[ext_resource type="AudioStream" uid="uid://c25qityq4tff3" path="res://sounds/sfx/click.mp3" id="3_mqtoe"]
+
+[node name="ButtonVFX" type="Node" unique_id=1208475356]
+script = ExtResource("1_is650")
+hover_sound = ExtResource("2_mqtoe")
+click_sound = ExtResource("3_mqtoe")
+metadata/_custom_type_script = "uid://ctf0a2xkkslbb"

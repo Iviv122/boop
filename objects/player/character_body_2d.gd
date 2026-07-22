@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name PlayerBody
 
+@export_category("Gameplay")
 @export var SPEED : float = 150.0
 @export var JUMP_VELOCITY : float = -300.0
 @export var FALL_VELOCITY : float = 600
@@ -12,14 +13,21 @@ class_name PlayerBody
 
 @export var PLAYER_HEIGHT : float = 64
 
+
+@export_category("Sprite")
 @export var move_shader : Array[Node2D]
 @export var dash_particles : GPUParticles2D
 @export var eyes : Array[Sprite2D]
 @export var sprite : Sprite2D
 @export var move_offset : float = 30
 
+@export_category("Channels")
 @export var death_channel : PlayerBus
 @export var game_state : GameState
+
+@export_category("Sounds")
+@export var swoosh_sound : AudioStream
+@export var death_sound : AudioStream
 
 var double_jump : bool = true
 
@@ -62,6 +70,7 @@ func handle_state() -> void:
 
 func die() -> void:
 	death_channel.die(self)
+	SFXINSTANCE.urgent_play(death_sound)
 	died.emit()
 	queue_free()
 
@@ -72,6 +81,7 @@ func reset_dash_cooldown() -> void:
 	dash_cooldown = 0
 
 func dash() -> void:
+	SFXINSTANCE.urgent_play(swoosh_sound)
 	dash_cooldown = DASH_COOLDOWN
 	dash_duration = DASH_DURATION
 

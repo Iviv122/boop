@@ -3,8 +3,12 @@ class_name Exit
 
 @export var next_ind : int = -1
 @export var exit_effect : PackedScene
+@export var exit_sound : AudioStream
 
 func svfx(player : PlayerBody) -> void:
+
+	SFXINSTANCE.urgent_play(exit_sound)
+
 	var eff = exit_effect.instantiate() as GPUParticles2D
 
 	eff.restart()

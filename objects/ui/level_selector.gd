@@ -2,6 +2,7 @@ extends Control
 
 @export var LoadLevelScript : Script
 @export var MinButtonSize : Vector2 = Vector2(32,32)
+@export var ButtonSFX : PackedScene
 var num = 0
 
 func get_num() -> int:
@@ -16,6 +17,8 @@ func _ready() -> void:
 		var b = Button.new()
 		b.set_script(LoadLevelScript)
 
+		var sfx = ButtonSFX.instantiate()
+
 		b.custom_minimum_size = Vector2(32,32)
 
 		var tnum = get_num()-1
@@ -23,3 +26,4 @@ func _ready() -> void:
 		b.text = str(tnum+1)
 
 		add_child(b)
+		b.add_child(sfx)

@@ -10,6 +10,8 @@ class_name SpawnPoint
 @export var spawn_camera : bool = true
 @export var spawn_effect : PackedScene
 
+@export var activate_sound : AudioStream
+
 var id : int
 
 func getPlayer() -> PlayerBody:
@@ -41,7 +43,7 @@ func svfx() -> void:
 	get_tree().current_scene.add_child.call_deferred(eff)
 
 func activate():
-
+	SFXINSTANCE.urgent_play(activate_sound)
 	spawnPointChannel.subscribe()
 	id = spawnPointChannel.get_id()
 	spawnPointChannel.activated(id)

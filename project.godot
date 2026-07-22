@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 SceneManager="*uid://caingp6gkj6ot"
 FadeSreen="*uid://dkgrb4u4i5gum"
 SceneMouseTrail="*uid://dy2o2v326bavg"
+SFXINSTANCE="*uid://disy4ma7bocqo"
+MusicInstance="*uid://opt45r5gjnah"
 
 [display]
 

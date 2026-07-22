@@ -2,8 +2,16 @@ extends Node
 class_name  SettingsManager
 
 @export var vsync : CheckBox
+@export var Sounds : Array[HSlider]
+
+var sounds = [
+	"master",
+	"music",
+	"sfx"
+]
 
 var config : ConfigFile = ConfigFile.new()
+
 
 func _ready() -> void:
 	vsync.toggled.connect(vsync_toggled)
@@ -20,6 +28,7 @@ func load_settings() -> void:
 	set_vsync(svsync)
 	vsync.set_pressed_no_signal(svsync)
 	print(svsync)
+
 
 func set_vsync(mode : bool) -> void:
 	if mode:

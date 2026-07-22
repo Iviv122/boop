@@ -4,6 +4,8 @@
 [ext_resource type="Resource" uid="uid://bjqvvqh2nfwl4" path="res://game_objects/busses/player_bus.tres" id="2_7o085"]
 [ext_resource type="Shader" uid="uid://d0krgxkcryago" path="res://shaders/2d_moving.gdshader" id="2_hy5qn"]
 [ext_resource type="Resource" uid="uid://cibqool5tvujm" path="res://game_objects/busses/game_state.tres" id="3_7o085"]
+[ext_resource type="AudioStream" uid="uid://daoyxlluxxrf3" path="res://sounds/sfx/dash_sound.wav" id="4_pyg5a"]
+[ext_resource type="AudioStream" uid="uid://cm77l273ivjl5" path="res://sounds/sfx/death.wav" id="5_mq4jh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epypp"]
 shader = ExtResource("2_hy5qn")
@@ -74,6 +76,8 @@ sprite = NodePath("Sprite2D")
 move_offset = 15.0
 death_channel = ExtResource("2_7o085")
 game_state = ExtResource("3_7o085")
+swoosh_sound = ExtResource("4_pyg5a")
+death_sound = ExtResource("5_mq4jh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1611400383]
 material = SubResource("ShaderMaterial_epypp")

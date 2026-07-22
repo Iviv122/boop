@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://djq6frtbmlqxp" path="res://objects/ui/pause_menu.gd" id="1_3ynnj"]
 [ext_resource type="Resource" uid="uid://cibqool5tvujm" path="res://game_objects/busses/game_state.tres" id="2_phdi0"]
 [ext_resource type="Script" uid="uid://txo7n77gb0aj" path="res://objects/ui/load_scene.gd" id="3_phdi0"]
+[ext_resource type="PackedScene" uid="uid://ccojw1w37bsuq" path="res://game_objects/ui/button_vfx.tscn" id="3_u32br"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ynnj"]
 content_margin_left = 15.0
@@ -46,12 +47,18 @@ layout_mode = 2
 layout_mode = 2
 text = "Continue"
 
+[node name="ButtonVFX" parent="CenterContainer/PanelContainer/VBoxContainer/Button" unique_id=1208475356 instance=ExtResource("3_u32br")]
+
 [node name="Button2" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=904814320]
 layout_mode = 2
 text = "Restart"
+
+[node name="ButtonVFX" parent="CenterContainer/PanelContainer/VBoxContainer/Button2" unique_id=994991113 instance=ExtResource("3_u32br")]
 
 [node name="Button3" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1565672763]
 layout_mode = 2
 text = "Exit"
 script = ExtResource("3_phdi0")
 main_menu = true
+
+[node name="ButtonVFX" parent="CenterContainer/PanelContainer/VBoxContainer/Button3" unique_id=1390231418 instance=ExtResource("3_u32br")]
