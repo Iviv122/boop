@@ -389,7 +389,7 @@ metadata/_custom_type_script = "uid://clo6fqrgi3kq3"
 
 [node name="Exit" parent="." unique_id=1884704850 instance=ExtResource("9_3lgme")]
 position = Vector2(457, -194)
-next_ind = 1
+next_ind = 7
 
 [node name="PickUp" parent="." unique_id=2082925212 instance=ExtResource("10_xmsj2")]
 position = Vector2(578, 725)
