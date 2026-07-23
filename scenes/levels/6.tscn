@@ -267,6 +267,97 @@ animations = [{
 font = ExtResource("14_mhb6s")
 font_size = 64
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhb6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gprjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j3rm")
+}],
+"loop": 1,
+"name": &"a",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjybn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0nv6")
+}],
+"loop": 1,
+"name": &"d",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hou1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw7ft")
+}],
+"loop": 1,
+"name": &"esc",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smcqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8lhh")
+}],
+"loop": 1,
+"name": &"r",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub3y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8tc4")
+}],
+"loop": 1,
+"name": &"s",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl53o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2gcf")
+}],
+"loop": 1,
+"name": &"shift",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nijki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_parju")
+}],
+"loop": 1,
+"name": &"space",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vybuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcckn")
+}],
+"loop": 1,
+"name": &"w",
+"speed": 5.0
+}]
+
 [node name="6" type="Node2D" unique_id=925962606]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=485013024]
@@ -297,23 +388,23 @@ metadata/_custom_type_script = "uid://clo6fqrgi3kq3"
 [node name="Control" parent="." unique_id=1172468639 instance=ExtResource("8_pre7j")]
 
 [node name="Exit" parent="." unique_id=1884704850 instance=ExtResource("9_3lgme")]
-position = Vector2(418, -207)
+position = Vector2(457, -194)
 next_ind = 1
 
 [node name="PickUp" parent="." unique_id=2082925212 instance=ExtResource("10_xmsj2")]
-position = Vector2(578, 715)
+position = Vector2(578, 725)
 
 [node name="PickUp2" parent="." unique_id=263911938 instance=ExtResource("10_xmsj2")]
-position = Vector2(304, 536)
+position = Vector2(304, 546)
 
 [node name="PickUp3" parent="." unique_id=3451184 instance=ExtResource("10_xmsj2")]
-position = Vector2(566, 342)
+position = Vector2(566, 352)
 
 [node name="PickUp4" parent="." unique_id=436596851 instance=ExtResource("10_xmsj2")]
-position = Vector2(455, 164)
+position = Vector2(455, 174)
 
 [node name="PickUp5" parent="." unique_id=1196806155 instance=ExtResource("10_xmsj2")]
-position = Vector2(457, -56)
+position = Vector2(457, -46)
 
 [node name="space9" type="AnimatedSprite2D" parent="." unique_id=1954452897]
 texture_filter = 1
@@ -330,3 +421,35 @@ offset_right = 634.0
 offset_bottom = 1061.0
 text = "Press to retry"
 label_settings = SubResource("LabelSettings_my386")
+
+[node name="space7" type="AnimatedSprite2D" parent="." unique_id=1317154412]
+texture_filter = 1
+position = Vector2(772, 684)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_mhb6s")
+animation = &"space"
+script = ExtResource("13_euiwt")
+
+[node name="space8" type="AnimatedSprite2D" parent="." unique_id=1324460169]
+texture_filter = 1
+position = Vector2(187.00006, 499.00003)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_mhb6s")
+animation = &"space"
+script = ExtResource("13_euiwt")
+
+[node name="space10" type="AnimatedSprite2D" parent="." unique_id=938582612]
+texture_filter = 1
+position = Vector2(188.00006, 128.00006)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_mhb6s")
+animation = &"space"
+script = ExtResource("13_euiwt")
+
+[node name="space11" type="AnimatedSprite2D" parent="." unique_id=1985060877]
+texture_filter = 1
+position = Vector2(784, -83.99994)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_mhb6s")
+animation = &"space"
+script = ExtResource("13_euiwt")

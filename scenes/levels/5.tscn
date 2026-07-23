@@ -134,4 +134,4 @@ metadata/_custom_type_script = "uid://clo6fqrgi3kq3"
 
 [node name="Exit" parent="." unique_id=1884704850 instance=ExtResource("9_2srqd")]
 position = Vector2(418, -207)
-next_ind = 1
+next_ind = 6
