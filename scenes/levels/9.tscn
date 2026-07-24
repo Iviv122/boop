@@ -125,7 +125,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1mu82"]
 gradient = SubResource("Gradient_4d7sh")
 
-[node name="7" type="Node2D" unique_id=925962606]
+[node name="9" type="Node2D" unique_id=925962606]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=485013024]
 modulate = Color(0.4745098, 0.22745098, 0.5019608, 1)
