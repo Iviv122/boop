@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dt4e6077gp5fb"]
+
+[ext_resource type="Script" uid="uid://mnympusukaw1" path="res://objects/save/save.gd" id="1_fkv45"]
+
+[node name="Save" type="Node" unique_id=593705494]
+script = ExtResource("1_fkv45")
+metadata/_custom_type_script = "uid://mnympusukaw1"

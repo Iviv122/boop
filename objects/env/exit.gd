@@ -27,6 +27,7 @@ func svfx(player : PlayerBody) -> void:
 func _load() -> void:
 	if next_ind >= 0:
 		await get_tree().create_timer(0.4).timeout
+		SaveInstance.save(next_ind)
 		SceneManager.load_level(get_tree(),next_ind-1)
 
 func try_load(other : Node2D) -> void:
