@@ -11,9 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bbreh0g71a2wr" path="res://scenes/levels/6.tscn" id="9_wkorc"]
 [ext_resource type="PackedScene" uid="uid://qxpvde0d3tyl" path="res://scenes/levels/7.tscn" id="10_1it1a"]
 [ext_resource type="PackedScene" uid="uid://ddnjwavrwtjdq" path="res://scenes/levels/8.tscn" id="11_xb0ra"]
+[ext_resource type="PackedScene" uid="uid://b3ie6hcdhp0gr" path="res://scenes/levels/9.tscn" id="12_ddvh7"]
 
 [node name="SceneManager" type="Node2D" unique_id=466875860]
 script = ExtResource("1_jo5df")
 main_menu = ExtResource("2_q0i0d")
 playground = ExtResource("3_opu64")
-levels = Array[PackedScene]([ExtResource("4_opu64"), ExtResource("5_i6dy3"), ExtResource("6_8xgxq"), ExtResource("7_yaxe4"), ExtResource("8_b515q"), ExtResource("9_wkorc"), ExtResource("10_1it1a"), ExtResource("11_xb0ra")])
+levels = Array[PackedScene]([ExtResource("4_opu64"), ExtResource("5_i6dy3"), ExtResource("6_8xgxq"), ExtResource("7_yaxe4"), ExtResource("8_b515q"), ExtResource("9_wkorc"), ExtResource("10_1it1a"), ExtResource("11_xb0ra"), ExtResource("12_ddvh7")])
