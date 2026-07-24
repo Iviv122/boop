@@ -10,11 +10,11 @@ func get_num() -> int:
 	num+=1
 	return num
 
+
 func load_levels() -> void:
+	num = 0
 	levels_beated = SaveInstance.load()
 
-func _ready() -> void:
-	load_levels()
 	for i in get_children():
 		i.queue_free()
 	for i in SceneManager.levels:
@@ -34,3 +34,8 @@ func _ready() -> void:
 		b.text = str(tnum+1)
 
 		add_child(b)
+
+
+func _ready() -> void:
+	SaveInstance.reseted.connect(load_levels)
+	load_levels()

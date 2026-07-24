@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ccojw1w37bsuq" path="res://game_objects/ui/button_vfx.tscn" id="7_flqon"]
 [ext_resource type="Script" uid="uid://dubsvf8aj3wre" path="res://objects/ui/ui_offset.gd" id="7_jk1qb"]
 [ext_resource type="Script" uid="uid://iqw4ql7or68i" path="res://objects/ui/settings/settings.gd" id="11_lgwnu"]
+[ext_resource type="Script" uid="uid://dbb0cxvpcu4dl" path="res://objects/ui/reset_level.gd" id="13_rcqid"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ekxnf"]
 shader = ExtResource("1_l6cm7")
@@ -354,6 +355,16 @@ value = -10.0
 
 [node name="ButtonVFX" parent="Node2D/Settings/VBoxContainer/HBoxContainer6/sfx" unique_id=521062138 instance=ExtResource("7_flqon")]
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Settings/VBoxContainer" unique_id=202775740]
+layout_mode = 2
+
+[node name="ResetProgress" type="Button" parent="Node2D/Settings/VBoxContainer/HBoxContainer" unique_id=356423088]
+layout_mode = 2
+text = "Reset game progress
+"
+script = ExtResource("13_rcqid")
+metadata/_custom_type_script = "uid://dbb0cxvpcu4dl"
+
 [node name="Button" type="Button" parent="Node2D/Settings" unique_id=1407912997 node_paths=PackedStringArray("manager")]
 custom_minimum_size = Vector2(200, 50)
 anchors_preset = 7
@@ -362,7 +373,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -100.0
-offset_top = -77.0
+offset_top = -99.0
 offset_right = 100.0
 offset_bottom = -49.0
 grow_horizontal = 2
